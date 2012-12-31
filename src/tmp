@@ -1,0 +1,12 @@
+findOverlap.c: In function ‘checkAndAddToReadBase’:
+findOverlap.c:197: warning: comparison between pointer and integer
+findOverlap.c: In function ‘checkAndConsistent’:
+findOverlap.c:395: error: invalid operands to binary - (have ‘long unsigned int’ and ‘int *’)
+findOverlap.c:396: error: incompatible types when assigning to type ‘int[2]’ from type ‘int *’
+findOverlap.c: At top level:
+bwtindex.h:135: warning: inline function ‘posSA2PosBWT’ declared but never defined
+bwt.h:117: warning: inline function ‘bwt_2occ4’ declared but never defined
+bwt.h:116: warning: inline function ‘bwt_2occ’ declared but never defined
+bwt.h:111: warning: inline function ‘bwt_occ4’ declared but never defined
+bwt.h:110: warning: inline function ‘bwt_occ’ declared but never defined
+make: *** [findOverlap.o] Error 1

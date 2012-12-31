@@ -1,0 +1,1096 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.6	//
+ALL_ONE_MASK	bwt_gen.h	40;"	d
+ALL_ONE_MASK64	bwt_gen64.h	61;"	d
+ALPHABET_SIZE	bwt_gen.h	31;"	d
+AVERAGE_CAPACITY	bwtindex.h	29;"	d
+AVERAGE_READ_LEN	findOverlap.h	4;"	d
+AddToKmerStack	generateGraph.c	/^int AddToKmerStack(KmerStack *kmerStack, const kmer_t k)$/;"	f
+AlignLimit	extend.h	/^} AlignLimit ;$/;"	t	typeref:struct:__anon29
+Arguments	hwgsa_para.h	/^typedef struct Arguments {$/;"	s
+Arguments	hwgsa_para.h	/^} Arguments ;$/;"	t	typeref:struct:Arguments
+BACKWARD	hwgsa_para.h	13;"	d
+BIDIRECTION	hwgsa_para.h	14;"	d
+BITS_IN_BYTE	bwt_gen.h	37;"	d
+BITS_IN_WORD	bwt_gen.h	36;"	d
+BITS_PER_OCC_VALUE	bwt_gen.h	43;"	d
+BIT_NT_CHAR	seqIO.c	/^const char BIT_NT_CHAR[] = {'C', 'A', 'T', 'G' };$/;"	v
+BIT_PER_CHAR	bwt_gen.h	32;"	d
+BLOCK_SIZE	bwt_gen64.h	68;"	d
+BRANCH_TWO_SET_FLAG	generateGraph.h	20;"	d
+BUF_SIZE	bwt.h	39;"	d
+BWA_UBYTE	bntseq.h	36;"	d
+BWA_UBYTE	bwt.h	42;"	d
+BWT	bwt_gen.h	/^typedef struct BWT {$/;"	s
+BWT	bwt_gen.h	/^} BWT;$/;"	t	typeref:struct:BWT
+BWT2BWT64	bwt_merge.c	/^BWT64 *BWT2BWT64(BWT *bwt, BWTInc64 *bwtInc64)$/;"	f
+BWT64	bwt_gen64.h	/^typedef struct BWT64 {$/;"	s
+BWT64	bwt_gen64.h	/^} BWT64;$/;"	t	typeref:struct:BWT64
+BWTCalReadsForwardPos	mapToGraph.c	/^ReadMapInfo *BWTCalReadsForwardPos(ISARegion fIsaRegion, const SPArr *spArr, const uint32_t vID, const int beginPos, const lib_info *libInfo, const bwt_t *bwt, const VertexArr *vertexArr)$/;"	f
+BWTCalReadsStartPos	mapToGraph.c	/^SPArr *BWTCalReadsStartPos(const ISARegion isaRegion, const uint32_t vID, const int beginPos, const int backExtendLen, const lib_info *libInfo, const bwt_t *bwt, const VertexArr *vertexArr)$/;"	f
+BWTClearTrailingBwtCode	bwt_gen.c	/^void BWTClearTrailingBwtCode(BWT *bwt)$/;"	f
+BWTClearTrailingBwtCode64	bwt_gen64.c	/^void BWTClearTrailingBwtCode64(BWT64 *bwt)$/;"	f
+BWTCreate	bwt_gen.c	/^BWT *BWTCreate(const unsigned int textLength, unsigned int *decodeTable)$/;"	f
+BWTCreate64	bwt_gen64.c	/^BWT64 *BWTCreate64(const uint64_t textLength, unsigned int *decodeTable)$/;"	f
+BWTFileSizeInWord	bwt_gen.c	/^static unsigned int BWTFileSizeInWord(const unsigned int numChar)$/;"	f	file:
+BWTFileSizeInWord64	bwt_gen64.c	/^static uint64_t BWTFileSizeInWord64(const uint64_t numChar)$/;"	f	file:
+BWTFree	bwt_gen.c	/^void BWTFree(BWT *bwt)$/;"	f
+BWTFree64	bwt_gen64.c	/^void BWTFree64(BWT64 *bwt)$/;"	f
+BWTGenerateOccValueFromBwt	bwt_gen.c	/^void BWTGenerateOccValueFromBwt(const unsigned int*  bwt, unsigned int* __restrict occValue,$/;"	f
+BWTGenerateOccValueFromBwt64	bwt_gen64.c	/^void BWTGenerateOccValueFromBwt64(const unsigned int*  bwt, unsigned int* __restrict occValue,$/;"	f
+BWTINC_INSERT_SORT_NUM_ITEM	bwt_gen.h	51;"	d
+BWTINDEX_H	bwtindex.h	2;"	d
+BWTINT	bwt_gen64.h	62;"	d
+BWTINT	bwtindex.h	23;"	d
+BWTInc	bwt_gen.h	/^typedef struct BWTInc {$/;"	s
+BWTInc	bwt_gen.h	/^} BWTInc;$/;"	t	typeref:struct:BWTInc
+BWTInc2BWTInc64	bwt_merge.c	/^BWTInc64 *BWTInc2BWTInc64(BWTInc *bwtInc)$/;"	f
+BWTInc64	bwt_gen64.h	/^typedef struct BWTInc64 {$/;"	s
+BWTInc64	bwt_gen64.h	/^} BWTInc64;$/;"	t	typeref:struct:BWTInc64
+BWTIncBuildBwt	bwt_gen.c	/^static void BWTIncBuildBwt(unsigned int*  seq, const unsigned int *relativeRank, const unsigned int numChar,$/;"	f	file:
+BWTIncBuildBwt	bwt_gen64.c	/^static void BWTIncBuildBwt(unsigned int*  seq, const unsigned int *relativeRank, const unsigned int numChar,$/;"	f	file:
+BWTIncBuildPackedBwt	bwt_gen.c	/^static void BWTIncBuildPackedBwt(const unsigned int *relativeRank, unsigned int* __restrict bwt, const unsigned int numChar,$/;"	f	file:
+BWTIncBuildPackedBwt	bwt_gen64.c	/^static void BWTIncBuildPackedBwt(const unsigned int *relativeRank, unsigned int* __restrict bwt, const unsigned int numChar,$/;"	f	file:
+BWTIncBuildRelativeRank	bwt_gen.c	/^static void BWTIncBuildRelativeRank(unsigned int* __restrict sortedRank, unsigned int* __restrict seq,$/;"	f	file:
+BWTIncBuildRelativeRank64	bwt_gen64.c	/^static void BWTIncBuildRelativeRank64(uint64_t* __restrict sortedRank, unsigned int* __restrict seq,$/;"	f	file:
+BWTIncConstruct	bwt_gen.c	/^static void BWTIncConstruct(BWTInc *bwtInc, const unsigned int numChar)$/;"	f	file:
+BWTIncConstruct64	bwt_gen64.c	/^static void BWTIncConstruct64(BWTInc64 *bwtInc, const uint64_t numChar)$/;"	f	file:
+BWTIncConstructFromPacked	bwt_gen.c	/^BWTInc *BWTIncConstructFromPacked(const char *inputFileName, const float targetNBit,$/;"	f
+BWTIncConstructFromPacked64	bwt_gen64.c	/^BWTInc64 *BWTIncConstructFromPacked64(const char *inputFileName, const float targetNBit,$/;"	f
+BWTIncCreate	bwt_gen.c	/^BWTInc *BWTIncCreate(const unsigned int textLength, const float targetNBit,$/;"	f
+BWTIncCreate64	bwt_gen64.c	/^BWTInc64 *BWTIncCreate64(const uint64_t textLength, const float targetNBit,$/;"	f
+BWTIncFree	bwt_gen.c	/^void BWTIncFree(BWTInc *bwtInc)$/;"	f
+BWTIncFree64	bwt_gen64.c	/^void BWTIncFree64(BWTInc64 *bwtInc)$/;"	f
+BWTIncGetAbsoluteRank	bwt_gen.c	/^static unsigned int BWTIncGetAbsoluteRank(BWT *bwt, unsigned int* __restrict absoluteRank, unsigned int* __restrict seq,$/;"	f	file:
+BWTIncGetAbsoluteRank64	bwt_gen64.c	/^static unsigned int BWTIncGetAbsoluteRank64(BWT64 *bwt, uint64_t* __restrict absoluteRank, unsigned int* __restrict seq,$/;"	f	file:
+BWTIncMergeBwt	bwt_gen.c	/^static void BWTIncMergeBwt(const unsigned int *sortedRank, const unsigned int* oldBwt, const unsigned int *insertBwt,$/;"	f	file:
+BWTIncMergeBwt64	bwt_gen64.c	/^static void BWTIncMergeBwt64(const uint64_t *sortedRank, const unsigned int* oldBwt, const unsigned int *insertBwt,$/;"	f	file:
+BWTIncPutPackedTextToRank	bwt_gen.c	/^static void BWTIncPutPackedTextToRank(const unsigned int *packedText, unsigned int* __restrict rank,$/;"	f	file:
+BWTIncPutPackedTextToRank	bwt_gen64.c	/^static void BWTIncPutPackedTextToRank(const unsigned int *packedText, unsigned int* __restrict rank,$/;"	f	file:
+BWTIncSetBuildSizeAndTextAddr	bwt_gen.c	/^static void BWTIncSetBuildSizeAndTextAddr(BWTInc *bwtInc)$/;"	f	file:
+BWTIncSetBuildSizeAndTextAddr64	bwt_gen64.c	/^static void BWTIncSetBuildSizeAndTextAddr64(BWTInc64 *bwtInc)$/;"	f	file:
+BWTIncSetMergeSize64	bwt_merge.c	/^void BWTIncSetMergeSize64(BWTInc64 *bwtInc64, BWTInc * bwtInc)$/;"	f
+BWTIncSortKey	bwt_gen.c	/^static void BWTIncSortKey(unsigned int* __restrict key, unsigned int* __restrict seq, const unsigned int numItem)$/;"	f	file:
+BWTIncSortKey64	bwt_gen64.c	/^static void BWTIncSortKey64(uint64_t* __restrict key, unsigned int* __restrict seq, const unsigned int numItem)$/;"	f	file:
+BWTOccValue	bwt_gen.c	/^unsigned int BWTOccValue(const BWT *bwt, unsigned int index, const unsigned int character) {$/;"	f
+BWTOccValue64	bwt_gen64.c	/^uint64_t BWTOccValue64(const BWT64 *bwt, uint64_t index, const unsigned int character) $/;"	f
+BWTOccValueExplicit	bwt_gen.c	/^static inline unsigned int BWTOccValueExplicit(const BWT *bwt, const unsigned int occIndexExplicit,$/;"	f	file:
+BWTOccValueExplicit	bwt_gen64.c	/^static inline uint64_t BWTOccValueExplicit(const BWT64 *bwt, const uint64_t occIndexExplicit,$/;"	f	file:
+BWTOccValueMajorSizeInWord	bwt_gen.c	/^static unsigned int BWTOccValueMajorSizeInWord(const unsigned int numChar)$/;"	f	file:
+BWTOccValueMajorSizeInWord64	bwt_gen64.c	/^uint64_t BWTOccValueMajorSizeInWord64(const uint64_t numChar)$/;"	f
+BWTOccValueMinorSizeInWord	bwt_gen.c	/^static unsigned int BWTOccValueMinorSizeInWord(const unsigned int numChar)$/;"	f	file:
+BWTOccValueMinorSizeInWord64	bwt_gen64.c	/^uint64_t BWTOccValueMinorSizeInWord64(const uint64_t numChar)$/;"	f
+BWTQSort64	bwt_gen64.c	/^void BWTQSort64(bgint_t* key, const bgint_t numItem)$/;"	f
+BWTResidentSizeInWord	bwt_gen.c	/^static unsigned int BWTResidentSizeInWord(const unsigned int numChar) {$/;"	f	file:
+BWTResidentSizeInWord64	bwt_gen64.c	/^uint64_t BWTResidentSizeInWord64(const uint64_t numChar) {$/;"	f
+BWTSaveBwtCodeAndOcc	bwt_gen.c	/^void BWTSaveBwtCodeAndOcc(const BWT *bwt, const char *bwtFileName, const char *occValueFileName)$/;"	f
+BWTSaveBwtCodeAndOcc64	bwt_gen64.c	/^void BWTSaveBwtCodeAndOcc64(const BWT64 *bwt, const char *bwtFileName, const char *occValueFileName)$/;"	f
+BWT_ADDR_OFFSET	bwt_gen64.h	64;"	d
+BWT_BNTSEQ_H	bntseq.h	29;"	d
+BWT_BUF_SIZE	bwt_gen64.h	66;"	d
+BWT_GEN64_H	bwt_gen64.h	26;"	d
+BWT_GEN_H	bwt_gen.h	26;"	d
+BWT_H	bwt.h	28;"	d
+BWT_SINGLE_OFFSET	bwt_gen64.h	65;"	d
+BYTES_IN_WORD	bwt_gen.h	38;"	d
+BackwardDNAOccCount	bwt_gen.c	/^static unsigned int BackwardDNAOccCount(const unsigned int*  dna, const unsigned int index, const unsigned int character,$/;"	f	file:
+BackwardDNAOccCount	bwt_gen64.c	/^static unsigned int BackwardDNAOccCount(const unsigned int*  dna, const unsigned int index, const unsigned int character,$/;"	f	file:
+BaseISA	extend.h	/^} BaseISA ;$/;"	t	typeref:struct:__anon24
+BitPerBytePackedChar	bwt_gen.c	/^static unsigned int BitPerBytePackedChar(const unsigned int alphabetSize)$/;"	f	file:
+BitPerBytePackedChar	bwt_gen64.c	/^static unsigned int BitPerBytePackedChar(const unsigned int alphabetSize)$/;"	f	file:
+BitPerWordPackedChar	bwt_gen.c	/^static unsigned int BitPerWordPackedChar(const unsigned int alphabetSize)$/;"	f	file:
+BitPerWordPackedChar	bwt_gen64.c	/^static unsigned int BitPerWordPackedChar(const unsigned int alphabetSize)$/;"	f	file:
+BntWriteArgs	hwgsa_para.h	/^} BntWriteArgs ;$/;"	t	typeref:struct:__anon9
+BntWriteArgs_free	bwtindex.c	/^void BntWriteArgs_free(BntWriteArgs *bntWArgs, const int number)$/;"	f
+BranchKmer	generateGraph.h	/^typedef struct BranchKmer {$/;"	s
+BranchKmer	generateGraph.h	/^} BranchKmer ;$/;"	t	typeref:struct:BranchKmer
+BranchQueue	generateGraph.h	/^typedef struct BranchQueue {$/;"	s
+BranchQueue	generateGraph.h	/^} BranchQueue ;$/;"	t	typeref:struct:BranchQueue
+BranchStack	generateGraph.h	/^typedef struct BranchStack {$/;"	s
+BranchStack	generateGraph.h	/^} BranchStack;$/;"	t	typeref:struct:BranchStack
+BulidVerticesIndexAndWriteFile	generateGraph.c	/^VerticesIndex *BulidVerticesIndexAndWriteFile(const HashTable *hashTable, const int hashNumber, gzFile vertexsgz)$/;"	f
+BwtCalWidth	mapToGraph.c	/^ISARegion BwtCalWidth(const bwt_t *bwt, const char *seq)$/;"	f
+CC	Makefile	/^CC=     gcc $/;"	m
+CFLAGS	Makefile	/^CFLAGS=     -g -pg -Wall -m64 -fopenmp -DDEBUG -std=gnu99 $/;"	m
+CHAR_PER_BYTE	bwt_gen.h	34;"	d
+CHAR_PER_WORD	bwt_gen.h	33;"	d
+CIGAR2read_len	extend.c	/^static inline int CIGAR2read_len(const char *cigar)$/;"	f	file:
+CXX	Makefile	/^CXX=    g++$/;"	m
+CXXFLAGS	Makefile	/^CXXFLAGS=	$(CFLAGS)$/;"	m
+CheckAndMergeSeq	generateGraph.c	/^int CheckAndMergeSeq(const char *s1, const char *s2, char *s)$/;"	f
+CheckBranch	generateGraph.c	/^int CheckBranch(const kmer_t k, const int direction)$/;"	f
+CheckPacFile	bwtindex.c	/^int CheckPacFile(const Arguments *arguments, const lib_info *libIndex_info, const BntWriteArgs *bntWriteArgs)$/;"	f
+ConstructMapEdgeInfo	mapToGraph.c	/^void ConstructMapEdgeInfo(MapEdgeInfo *meiArr, const MapIndex *mi, const uint32_t mei_size)$/;"	f
+ConvertBytePackedToWordPacked	bwt_gen.c	/^static void ConvertBytePackedToWordPacked(const unsigned char *input, unsigned int *output, const unsigned int alphabetSize,$/;"	f	file:
+ConvertBytePackedToWordPacked64	bwt_gen64.c	/^static void ConvertBytePackedToWordPacked64(const unsigned char *input, unsigned int *output, const unsigned int alphabetSize,$/;"	f	file:
+DBGEdgesRestore	generateGraph.c	/^void DBGEdgesRestore(VertexArr *vArr, const char *gzfn)$/;"	f
+DBGVerticesRestore	generateGraph.c	/^VertexArr *DBGVerticesRestore(const char *gzfn)$/;"	f
+DEBUG	bwtindex.h	31;"	d
+DEFAULT_DEPTH	bwtindex.h	28;"	d
+DEF_KMER	hwgsa_para.h	8;"	d
+DEPTH	generateGraph.h	/^int32_t DEPTH ;$/;"	v
+DFLAGS	Makefile	/^DFLAGS=    -D_FILE_OFFSET_BITS=64$/;"	m
+DNA_OCC_CNT_TABLE_SIZE_IN_WORD	bwt_gen.h	41;"	d
+DNA_OCC_SUM_EXCEPTION	bwt_gen.h	60;"	d
+DNA_SYMBOLS_NUMBER	bwtindex.h	30;"	d
+DecodeSuperBlockCompressedBWT	bwt_merge.c	/^void DecodeSuperBlockCompressedBWT(const BWT64 *bwt64, const int64_t sBIndex, uint32_t *buf)$/;"	f
+DeconstructSelfCycle	mapToGraph.c	/^void DeconstructSelfCycle(const uint32_t edgeID, const VertexArr *verArr, const EdgeArr *edgeArr, const MapEdgeInfo *meiArr, const MapIndex *mi const Arguments *arguments)$/;"	f
+DivideBoundary	bwt_gen64.h	/^typedef struct DivideBoundary {$/;"	s
+DivideBoundary	bwt_gen64.h	/^} DivideBoundary ;$/;"	t	typeref:struct:DivideBoundary
+EQUAL_KEY_THRESHOLD	bwt_gen.c	645;"	d	file:
+EQUAL_KEY_THRESHOLD	bwt_gen64.c	673;"	d	file:
+EQUAL_KEY_THRESHOLD	bwt_gen64.c	836;"	d	file:
+Edge	generateGraph.h	/^typedef struct Edge {$/;"	s
+Edge	generateGraph.h	/^} Edge ;$/;"	t	typeref:struct:Edge
+EdgeArr	generateGraph.h	/^typedef struct EdgeArr {$/;"	s
+EdgeArr	generateGraph.h	/^} EdgeArr ;  $/;"	t	typeref:struct:EdgeArr
+EstimateGap	extend.h	/^} EstimateGap;$/;"	t	typeref:struct:__anon42
+ExTEND_UNITIG_H	extend.h	2;"	d
+FALSE	bwt_gen.h	49;"	d
+FORWARD	hwgsa_para.h	12;"	d
+FindMostLargeOfLower	bwt_merge.c	/^int64_t FindMostLargeOfLower(const uint64_t *array, const int64_t len, const uint64_t query)$/;"	f
+ForwardDNAAllOccCountNoLimit	bwt_gen.c	/^static void ForwardDNAAllOccCountNoLimit(const unsigned int*  dna, const unsigned int index,$/;"	f	file:
+ForwardDNAAllOccCountNoLimit	bwt_gen64.c	/^static void ForwardDNAAllOccCountNoLimit(const unsigned int*  dna, const unsigned int index,$/;"	f	file:
+ForwardDNAOccCount	bwt_gen.c	/^static unsigned int ForwardDNAOccCount(const unsigned int*  dna, const unsigned int index, const unsigned int character,$/;"	f	file:
+ForwardDNAOccCount	bwt_gen64.c	/^static unsigned int ForwardDNAOccCount(const unsigned int*  dna, const unsigned int index, const unsigned int character,$/;"	f	file:
+FreeRMA	mapToGraph.c	/^void FreeRMA(ReadMapArg rma)$/;"	f
+G	hwgsa_para.h	/^    int G ;  \/\/ genome size ,suffix is the Mega(M)$/;"	m	struct:Arguments
+GENERATE_GRAPH_H	generateGraph.h	2;"	d
+GET_CHAR_FROM_PAC	bwtindex.h	36;"	d
+GET_CHAR_FROM_PAC	hwgsa_para.h	17;"	d
+GET_CHAR_FROM_PACKED	bwt_gen64.h	71;"	d
+GET_CHAR_FROM_UINT64	bwtindex.h	35;"	d
+GET_LCP_FLAG	bwtindex.h	34;"	d
+GenerateDNAOccCountTable	bwt_gen.c	/^static void GenerateDNAOccCountTable(unsigned int *dnaDecodeTable)$/;"	f	file:
+GenerateDNAOccCountTable	bwt_gen64.c	/^static void GenerateDNAOccCountTable(unsigned int *dnaDecodeTable)$/;"	f	file:
+GetCigarFromSPArr	mapToGraph.c	/^char *GetCigarFromSPArr(SPArr *spArr, const int mapEnd)$/;"	f
+GetKmer	generateGraph.c	/^inline kmer_t GetKmer(const kmer_t tk, const HashTable *hashTable, const int hashNumber)$/;"	f
+GetKmerArrFreq	generateGraph.c	/^inline uint8_t *GetKmerArrFreq(const KmerArr *ka)$/;"	f
+GetKmerArrSeq	generateGraph.c	/^inline char *GetKmerArrSeq(const KmerArr *ka)$/;"	f
+GetMinKmer	generateGraph.c	/^inline kmer_t GetMinKmer(const kmer_t k)$/;"	f
+GetReadsExtremumLen	mapToGraph.c	/^int GetReadsExtremumLen(const lib_info *libInfo, int FLAG)$/;"	f
+GetRegionSeq	mapToGraph.c	/^int *GetRegionSeq(const bwt_t *bwt, const ISARegion isaRegion)$/;"	f
+GetRetainReadSeq	mapToGraph.c	/^char *GetRetainReadSeq(const uint8_t *pac, const int64_t beginPos, const int len)$/;"	f
+GetSP	mapToGraph.c	/^inline SaPos GetSP(char *str)$/;"	f
+GetVertexDegree	generateGraph.c	/^inline int GetVertexDegree(const kmer_t k, const int flag)$/;"	f
+GetVertexString	generateGraph.c	/^inline char *GetVertexString(const Vertex v)$/;"	f
+H	hwgsa_para.h	/^    uint8_t H ; \/\/ heterozygosity of diploid genome $/;"	m	struct:Arguments
+HASHLEN	lookup3.c	791;"	d	file:
+HASHSTATE	lookup3.c	790;"	d	file:
+HASH_BIG_ENDIAN	lookup3.c	57;"	d	file:
+HASH_BIG_ENDIAN	lookup3.c	62;"	d	file:
+HASH_BIG_ENDIAN	lookup3.c	65;"	d	file:
+HASH_LITTLE_ENDIAN	lookup3.c	56;"	d	file:
+HASH_LITTLE_ENDIAN	lookup3.c	61;"	d	file:
+HASH_LITTLE_ENDIAN	lookup3.c	64;"	d	file:
+HWGSA_MAIN_H	HWGSA.h	2;"	d
+HWGSA_PARA_H	hwgsa_para.h	2;"	d
+HasReadEndSPArr	mapToGraph.c	/^inline int HasReadEndSPArr(const SPArr *spArr)$/;"	f
+HasUnifinishedSPArr	mapToGraph.c	/^inline int HasUnifinishedSPArr(const SPArr *spArr)$/;"	f
+HashTable	generateGraph.h	/^typedef struct HashTable {$/;"	s
+HashTable	generateGraph.h	/^} HashTable ;$/;"	t	typeref:struct:HashTable
+ID	generateGraph.h	/^	int ID ; \/\/ same  as vertex ID$/;"	m	struct:Edge
+ID	generateGraph.h	/^	int ID ; \/\/ the vertex ID $/;"	m	struct:KmerToVer
+ID	generateGraph.h	/^	int ID ;$/;"	m	struct:Vertex
+ID	mapToGraph.h	/^	uint64_t ID:34 ; \/\/ the readID$/;"	m	struct:ReadLoc
+IN	generateGraph.h	22;"	d
+INITIAL_STACK_SIZE	utils.h	38;"	d
+INI_SIZE	bwtindex.h	21;"	d
+INSERT_SORT_NUM_ITEM	QSufSort.h	33;"	d
+ISA	bwtindex.h	/^    uint64_t ISA[2] ;$/;"	m	struct:LongZeroSA
+ISABase	extend.h	/^} ISABase ;$/;"	t	typeref:struct:__anon25
+ISABase	findOverlap.h	/^} ISABase;$/;"	t	typeref:struct:__anon12
+ISACache	mapToGraph.h	/^typedef struct ISACache {$/;"	s
+ISACache	mapToGraph.h	/^} ISACache ;$/;"	t	typeref:struct:ISACache
+ISARegion	mapToGraph.h	/^typedef struct ISARegion {$/;"	s
+ISARegion	mapToGraph.h	/^} ISARegion ;$/;"	t	typeref:struct:ISARegion
+Insert_info	extend.h	/^} Insert_info;$/;"	t	typeref:struct:__anon36
+IsDeleted	generateGraph.c	/^int IsDeleted(const uint64_t *kmer, const HashTable *hashTable, const int hashNumber)$/;"	f
+IsProcessed	generateGraph.c	/^int IsProcessed(const kmer_t tk, const  HashTable *hashTable, const int hashNumber)$/;"	f
+IsSelfCycleBubble	mapToGraph.c	/^int IsSelfCycleBubble(const int vID, const VertexArr *verArr)$/;"	f
+K	hwgsa_para.h	/^    uint32_t K ;  \/\/ kmer len$/;"	m	struct:Arguments
+KEY	QSufSort.h	32;"	d
+KFC_SEQIO_H	seqIO.h	2;"	d
+KMER	bwtindex.h	/^int32_t KMER ;$/;"	v
+KSTRING_t	seqIO.h	39;"	d
+KStrip	utils.c	/^char *KStrip(char *s)$/;"	f
+KmerAddr	generateGraph.h	/^typedef struct KmerAddr{$/;"	s
+KmerAddr	generateGraph.h	/^} KmerAddr ;$/;"	t	typeref:struct:KmerAddr
+KmerArr	generateGraph.h	/^typedef struct KmerArr {$/;"	s
+KmerArr	generateGraph.h	/^} KmerArr ;$/;"	t	typeref:struct:KmerArr
+KmerFreq	bwtindex.h	/^typedef struct KmerFreq {$/;"	s
+KmerFreq	bwtindex.h	/^} KmerFreq ;$/;"	t	typeref:struct:KmerFreq
+KmerFreqCurve	bwtindex.h	/^typedef struct KmerFreqCurve {$/;"	s
+KmerFreqCurve	bwtindex.h	/^} KmerFreqCurve;$/;"	t	typeref:struct:KmerFreqCurve
+KmerInfo	bwtindex.h	/^typedef struct KmerInfo {$/;"	s
+KmerInfo	bwtindex.h	/^} KmerInfo ;$/;"	t	typeref:struct:KmerInfo
+KmerStack	generateGraph.h	/^typedef struct KmerStack {$/;"	s
+KmerStack	generateGraph.h	/^} KmerStack ;$/;"	t	typeref:struct:KmerStack
+KmerToVer	generateGraph.h	/^typedef struct KmerToVer {$/;"	s
+KmerToVer	generateGraph.h	/^} KmerToVer ;$/;"	t	typeref:struct:KmerToVer
+Ku	generateGraph.h	/^typedef union Ku{$/;"	u
+Ku	generateGraph.h	/^} Ku;$/;"	t	typeref:union:Ku
+L2	bwt.h	/^	bwtint_t L2[5]; \/\/ C(), cumulative count$/;"	m	struct:__anon1
+LCPBound	bwtindex.h	/^typedef struct LCPBound {$/;"	s
+LCPBound	bwtindex.h	/^} LCPBound ;$/;"	t	typeref:struct:LCPBound
+LEN_INTERVAL_MAJOR	hwgsa_para.h	15;"	d
+LEN_WIDTH	mapToGraph.h	3;"	d
+LH3_UTILS_H	utils.h	28;"	d
+LIB	hwgsa_para.h	/^} LIB ; \/\/ library $/;"	t	typeref:struct:__anon6
+LIBS	Makefile	/^LIBS=       -lm -lz $/;"	m
+LINK_BIGGER_THAN_ONE	generateGraph.h	18;"	d
+LINK_EQUL_ONE	generateGraph.h	19;"	d
+LOW_QUAL_CUTOFF	hwgsa_para.h	10;"	d
+LocateStartSA	hwgsa_para.c	/^ReadLocation LocateStartSA(const int64_t sa, const ReadLocation rl, const int flag)$/;"	f
+LongZeroSA	bwtindex.h	/^typedef struct LongZeroSA {$/;"	s
+LongZeroSA	bwtindex.h	/^} LongZeroSA ;$/;"	t	typeref:struct:LongZeroSA
+MAXFILENAMELEN	seqIO.c	9;"	d	file:
+MAXLEN	lookup3.c	793;"	d	file:
+MAXPAIR	lookup3.c	792;"	d	file:
+MAXREADLEN	seqIO.h	14;"	d
+MAX_COMPRESS_BLOCK	bwt_gen64.h	69;"	d
+MAX_IDENTITY_NUM	mapToGraph.c	/^int MAX_IDENTITY_NUM = 8 ;$/;"	v
+MAX_INDEL_LEN	extend.h	19;"	d
+MAX_INDEL_NUM	extend.h	18;"	d
+MAX_KMER	hwgsa_para.h	7;"	d
+MAX_MAPFILE_LINE_LENGTH	extend.h	22;"	d
+MAX_MISMACTH	extend.h	20;"	d
+MAX_READS_LEN	mapToGraph.c	13;"	d	file:
+MAX_READ_LEN	extend.h	14;"	d
+MAX_UNMAP_REGION_ALLOW	extend.h	17;"	d
+MINBUFSIZE	seqIO.h	11;"	d
+MIN_FLANK	extend.h	21;"	d
+MIN_KMER	hwgsa_para.h	6;"	d
+MIN_KMERFREQ	bwtindex.h	24;"	d
+MIN_KMER_EXTENSION_LENGTH	hwgsa_para.h	9;"	d
+MIN_READS_LEN	mapToGraph.c	12;"	d	file:
+MIN_TIMES	generateGraph.h	17;"	d
+MIN_ZERO_GAP_NUM	bwtindex.h	25;"	d
+MapBase	extend.h	/^} MapBase ;$/;"	t	typeref:struct:__anon27
+MapEdgeInfo	mapToGraph.h	/^typedef struct MapEdgeInfo {	$/;"	s
+MapEdgeInfo	mapToGraph.h	/^} MapEdgeInfo ;$/;"	t	typeref:struct:MapEdgeInfo
+MapEndToVertex	mapToGraph.c	/^ReadMapInfo MapEndToVertex(const char *seq, const VertexArr *verArr, const SaPos sp)$/;"	f
+MapIndex	mapToGraph.h	/^typedef struct MapIndex {$/;"	s
+MapIndex	mapToGraph.h	/^} MapIndex ;$/;"	t	typeref:struct:MapIndex
+MapInfo	extend.h	/^} MapInfo;$/;"	t	typeref:struct:__anon31
+MapInfo	mapToGraph.h	/^typedef struct MapInfo {$/;"	s
+MapInfo	mapToGraph.h	/^} MapInfo ;$/;"	t	typeref:struct:MapInfo
+MapLineInfo	extend.h	/^} MapLineInfo;$/;"	t	typeref:struct:__anon30
+MapToGraph	mapToGraph.c	/^void MapToGraph(Arguments *arguments)$/;"	f
+MapToGraphCore	mapToGraph.c	/^void MapToGraphCore(const Arguments arguments, const lib_info *libInfo, const bwt_t *bwt, const VertexArr *verArr)$/;"	f
+MapToGraphEnd	mapToGraph.c	/^void MapToGraphEnd(const Arguments *arguments, const lib_info *libInfo, const VertexArr *verArr, const uint8_t *pac)$/;"	f
+MapToGraphEndCore	mapToGraph.c	/^void MapToGraphEndCore(gzFile gzInfo, gzFile gzMap, omp_lock_t fpInfo_lock, omp_lock_t fpMap_lock, const VertexArr *verArr, const lib_info *libInfo, const uint8_t *pac)$/;"	f
+MapToVertex	mapToGraph.c	/^void MapToVertex(const uint32_t vID, const lib_info *libInfo, const bwt_t *bwt, const VertexArr *vertexArr, int maxReadLen, int minReadLen, gzFile gzfp, omp_lock_t *fp_lock)$/;"	f
+MaskLink	generateGraph.c	/^uint8_t MaskLink[] = {0xFE, 0xFD, 0xFB, 0xF7};$/;"	v
+NCPU	bwtindex.h	/^int32_t NCPU ;$/;"	v
+NCPU	hwgsa_para.h	/^    int NCPU ;$/;"	m	struct:Arguments
+NUM_FILE	bwtindex.h	26;"	d
+NUM_LIB	bwtindex.h	20;"	d
+OBJS	Makefile	/^OBJS=		hwgsa_all.o bwtindex.o generateGraph.o hwgsa_para.o seqIO.o bwtio.o bwt.o bwtmisc.o\\$/;"	m
+OCC_INTERVAL	bwt_gen.h	45;"	d
+OCC_INTERVAL64	bwt.h	35;"	d
+OCC_INTERVAL_MAJOR	bwt_gen.h	46;"	d
+OCC_INTERVAL_MAJOR64	bwt_gen64.h	63;"	d
+OCC_VALUE_PER_WORD	bwt_gen.h	44;"	d
+OUT	generateGraph.h	23;"	d
+OrderElem	extend.h	/^} OrderElem;$/;"	t	typeref:struct:__anon44
+OrderUnitigInfo	extend.h	/^} OrderUnitigInfo;$/;"	t	typeref:struct:__anon45
+OverlapInfo	findOverlap.h	/^} OverlapInfo;$/;"	t	typeref:struct:__anon15
+PACKAGE_VERSION	HWGSA.c	4;"	d	file:
+PATH_LEN	hwgsa_para.h	19;"	d
+PATH_LEN	utils.h	46;"	d
+PConfReturn	hwgsa_para.h	/^} PConfReturn ;$/;"	t	typeref:struct:__anon10
+PE	hwgsa_para.h	/^} PE ; \/\/ Pair End library  $/;"	t	typeref:struct:__anon5
+PEAK_SD	generateGraph.h	16;"	d
+PROG	Makefile	/^PROG=		HWGSA0725$/;"	m
+PROGRAM_NAME	hwgsa_para.h	16;"	d
+QSufSortBucketSort	QSufSort.c	/^static void QSufSortBucketSort(int* __restrict V, int* __restrict I, const int numChar, const int alphabetSize) {$/;"	f	file:
+QSufSortChoosePivot	QSufSort.c	/^static int QSufSortChoosePivot(int* __restrict V, int* __restrict I, const int lowestPos, $/;"	f	file:
+QSufSortGenerateSaFromInverse	QSufSort.c	/^void QSufSortGenerateSaFromInverse(const int* V, int* __restrict I, const int numChar) {$/;"	f
+QSufSortInsertSortSplit	QSufSort.c	/^static void QSufSortInsertSortSplit(int* __restrict V, int* __restrict I, const int lowestPos, $/;"	f	file:
+QSufSortSortSplit	QSufSort.c	/^static void QSufSortSortSplit(int* __restrict V, int* __restrict I, const int lowestPos, $/;"	f	file:
+QSufSortSuffixSort	QSufSort.c	/^void QSufSortSuffixSort(int* __restrict V, int* __restrict I, const int numChar, const int largestInputSymbol, $/;"	f
+QSufSortTransform	QSufSort.c	/^static int QSufSortTransform(int* __restrict V, int* __restrict I, const int numChar, const int largestInputSymbol, $/;"	f	file:
+READ_SIZE	hwgsa_para.h	11;"	d
+RESET_BIT	bwtindex.c	/^const uint8_t RESET_BIT[8] = { 0X7F, 0XBF, 0XDF, 0XEF, 0XF7, 0XFB, 0XFD, 0XFE } ;$/;"	v
+ReadBase	findOverlap.h	/^} ReadBase; $/;"	t	typeref:struct:__anon14
+ReadBoundaryLookup	hwgsa_para.c	/^ReadLocation ReadBoundaryLookup(const lib_info *libIndex_info, const int64_t position, const int flag)$/;"	f
+ReadInfo	findOverlap.h	/^} ReadInfo;$/;"	t	typeref:struct:__anon13
+ReadLoc	mapToGraph.h	/^typedef struct ReadLoc {$/;"	s
+ReadLoc	mapToGraph.h	/^} ReadLoc ;$/;"	t	typeref:struct:ReadLoc
+ReadLocation	hwgsa_para.h	/^} ReadLocation;$/;"	t	typeref:struct:__anon11
+ReadMapArg	mapToGraph.h	/^typedef struct ReadMapArg {$/;"	s
+ReadMapArg	mapToGraph.h	/^} ReadMapArg ;$/;"	t	typeref:struct:ReadMapArg
+ReadMapInfo	mapToGraph.h	/^typedef struct ReadMapInfo {$/;"	s
+ReadMapInfo	mapToGraph.h	/^} ReadMapInfo ;$/;"	t	typeref:struct:ReadMapInfo
+ReadMapInfoRestore	mapToGraph.c	/^MapIndex *ReadMapInfoRestore(const Arguments *arguments, const lib_info *libInfo)$/;"	f
+ReadMapStack	mapToGraph.h	/^typedef struct ReadMapStack {$/;"	s
+ReadMapStack	mapToGraph.h	/^} ReadMapStack ;$/;"	t	typeref:struct:ReadMapStack
+ReadName	hwgsa_para.h	/^} ReadName ;$/;"	t	typeref:struct:__anon8
+ReadPool	extend.h	/^} ReadPool;$/;"	t	typeref:struct:__anon47
+ReadPos	extend.h	/^} ReadPos;$/;"	t	typeref:struct:__anon32
+ReadSeq	extend.h	/^} ReadSeq;$/;"	t	typeref:struct:__anon46
+ReduceGraph	generateGraph.c	/^int ReduceGraph(kmer_graph *initialGraph, KmerStack *kmerStack, const KmerFreqCurve curve)$/;"	f
+Region	extend.h	/^} Region ;$/;"	t	typeref:struct:__anon22
+ResetLinkInfo	generateGraph.c	/^kmer_t  ResetLinkInfo(kmer_t k, HashTable *hashTable, const int hashNumber)$/;"	f
+ReverseCompleString	mapToGraph.c	/^char *ReverseCompleString(const char *seq)$/;"	f
+SA	bwtindex.h	/^    uint64_t SA[2] ;$/;"	m	struct:LongZeroSA
+SAValue	bwt_gen64.h	/^typedef struct SAValue {$/;"	s
+SAValue	bwt_gen64.h	/^} SAValue;$/;"	t	typeref:struct:SAValue
+SA_ACCESS_MASK_FLAG	extend.h	16;"	d
+SA_INTERVAL	bwt.h	38;"	d
+SA_REV	extend.h	/^} SA_REV ;$/;"	t	typeref:struct:__anon28
+SA_SET_ACCESS_FLAG	extend.h	15;"	d
+SD	extend.h	/^    int SD ;$/;"	m	struct:__anon44
+SD	extend.h	/^    int SD;$/;"	m	struct:__anon40
+SD	extend.h	/^    int SD;$/;"	m	struct:__anon42
+SET_BIT	bwtindex.c	/^const uint8_t SET_BIT[8] = { 0X80, 0X40, 0X20, 0X10, 0X08 , 0X04 , 0X02, 0X01 } ;$/;"	v
+SET_LCP_FLAG	bwtindex.h	33;"	d
+SNP	generateGraph.h	/^    uint32_t SNP:2 ; \/\/ SNP $/;"	m	struct:kmer_info
+SNP	generateGraph.h	/^    uint8_t SNP:2 ; $/;"	m	struct:SNPinfo
+SNPinfo	generateGraph.h	/^typedef struct SNPinfo {$/;"	s
+SNPinfo	generateGraph.h	/^} SNPinfo ;$/;"	t	typeref:struct:SNPinfo
+SNPset	generateGraph.h	/^typedef struct SNPset {$/;"	s
+SNPset	generateGraph.h	/^} SNPset ;$/;"	t	typeref:struct:SNPset
+SPArr	mapToGraph.h	/^typedef struct SPArr {$/;"	s
+SPArr	mapToGraph.h	/^} SPArr ;$/;"	t	typeref:struct:SPArr
+STEP_LEN	extend.h	13;"	d
+SUPERBLOCK_SIZE	bwt_gen64.h	67;"	d
+SaIndexRange	bwt_gen.h	/^typedef struct SaIndexRange {$/;"	s
+SaIndexRange	bwt_gen.h	/^} SaIndexRange;$/;"	t	typeref:struct:SaIndexRange
+SaPos	mapToGraph.h	/^typedef struct SaPos {$/;"	s
+SaPos	mapToGraph.h	/^} SaPos ;$/;"	t	typeref:struct:SaPos
+Seq_region	extend.h	/^} Seq_region;$/;"	t	typeref:struct:__anon23
+Seq_region_destroy	extend.c	/^void Seq_region_destroy(Seq_region *sr)$/;"	f
+SetDirectionFlag	generateGraph.c	/^void SetDirectionFlag(HashTable hashTable, const int hashNumber)$/;"	f
+SetVertexFreq	generateGraph.c	/^void SetVertexFreq(Vertex *v, const char *s)$/;"	f
+SetVertexHead	generateGraph.c	/^inline Vertex SetVertexHead(char *s)$/;"	f
+SimplifyGraphByMapInfo	mapToGraph.c	/^void SimplifyGraphByMapInfo(const Arguments *arguments, const lib_info *libInfo, const bwt_t *bwt,const VertexArr *verArr, const EdgeArr *edgeArr)$/;"	f
+TRUE	bwt_gen.h	48;"	d
+TextLengthFromBytePacked	bwt_gen.c	/^static unsigned int TextLengthFromBytePacked(unsigned int bytePackedLength, unsigned int bitPerChar,$/;"	f	file:
+TextLengthFromBytePacked64	bwt_gen64.c	/^static uint64_t TextLengthFromBytePacked64(uint64_t bytePackedLength, unsigned int bitPerChar,$/;"	f	file:
+ThreadArgs	generateGraph.h	/^typedef struct ThreadArgs {$/;"	s
+ThreadArgs	generateGraph.h	/^} ThreadArgs ;$/;"	t	typeref:struct:ThreadArgs
+UGInfo	extend.h	/^} UGInfo; \/\/ unitigs group information$/;"	t	typeref:struct:__anon39
+UGInfo_destroy	extend.c	/^void UGInfo_destroy(UGInfo *ugInfo)$/;"	f
+UnitigFlatten	extend.h	/^} UnitigFlatten;$/;"	t	typeref:struct:__anon40
+UnitigGroup	extend.h	/^} UnitigGroup;$/;"	t	typeref:struct:__anon35
+UnitigLoc	extend.h	/^} UnitigLoc;$/;"	t	typeref:struct:__anon37
+UnitigLocTable	extend.h	/^} UnitigLocTable;$/;"	t	typeref:struct:__anon38
+UnitigPInfo	extend.h	/^} UnitigPInfo;$/;"	t	typeref:struct:__anon34
+UnitigPairGapInfo	extend.h	/^} UnitigPairGapInfo;$/;"	t	typeref:struct:__anon43
+UnitigScaff	extend.h	/^} UnitigScaff;$/;"	t	typeref:struct:__anon41
+Unitig_pair	extend.h	/^} Unitig_pair;$/;"	t	typeref:struct:__anon33
+VERTEX_ID_GET_FLAG	generateGraph.h	21;"	d
+Vertex	generateGraph.h	/^typedef struct Vertex {$/;"	s
+Vertex	generateGraph.h	/^} Vertex ;$/;"	t	typeref:struct:Vertex
+VertexArr	generateGraph.h	/^typedef struct VertexArr {$/;"	s
+VertexArr	generateGraph.h	/^} VertexArr ;$/;"	t	typeref:struct:VertexArr
+VertexArrFree	generateGraph.c	/^void VertexArrFree(const VertexArr *verArr)$/;"	f
+VerticesIndex	generateGraph.h	/^typedef struct VerticesIndex {$/;"	s
+VerticesIndex	generateGraph.h	/^} VerticesIndex ;$/;"	t	typeref:struct:VerticesIndex
+WriteDBGedgesgz	generateGraph.c	/^void WriteDBGedgesgz(const VerticesIndex *vIdx, gzFile edgesgz)$/;"	f
+WriteEdgesTogz	generateGraph.c	/^void WriteEdgesTogz(const Edge *edge, const int size, gzFile edgesgz)$/;"	f
+WriteMapInfo	mapToGraph.c	/^void WriteMapInfo(ReadMapInfo *rmi, SPArr *spArr, ReadLocation startLoc)$/;"	f
+WriteVertexToFile	generateGraph.c	/^void WriteVertexToFile(const uint32_t vID, const KmerArr *ke, gzFile vertexsgz)$/;"	f
+__QSUFSORT_H__	QSufSort.h	30;"	d
+__occ_aux	bwt.c	/^static inline int __occ_aux(uint64_t y, int c)$/;"	f	file:
+__occ_aux4	bwt.c	211;"	d	file:
+addBranch	generateGraph.c	/^int addBranch(kmer_graph *initialGraph, const int graphIndex, int graphCount, BranchQueue *branchQueue, const int direction, kmer_t curkmer, kmer_t prekmer)$/;"	f
+addToQueue	generateGraph.c	/^void addToQueue(kmer_graph *initialGraph, const int graphIndex,const int graphCount, BranchQueue *branchQueue, const uint8_t base, int direction, uint64_t *kmerSeq)$/;"	f
+addUnitigPInfoHash	extend.c	/^void addUnitigPInfoHash(UnitigPInfo *upi, const int unitigID1, const int unitigID2)$/;"	f
+addr	generateGraph.h	/^    int64_t addr ;$/;"	m	struct:KmerAddr
+adjustQuality	bwtindex.c	/^static inline uint8_t adjustQuality(const char quality, const int benchmark)$/;"	f	file:
+align_seq_core	findOverlap.c	/^OverlapInfo align_seq_core(const uint8_t *bnt1, const uint8_t *bnt2, const int bnt1_len, const int bnt2_len, const int step, const OverlapInfo oi, const int max_diff, const uint8_t last_char)$/;"	f
+all_usage	hwgsa_all.c	/^int all_usage()$/;"	f
+amb	bntseq.h	/^	char amb;$/;"	m	struct:__anon3
+ambs	bntseq.h	/^	bntamb1_t *ambs; \/\/ n_holes elements$/;"	m	struct:__anon4
+anno	bntseq.h	/^	char *name, *anno;$/;"	m	struct:__anon2
+anns	bntseq.h	/^	bntann1_t *anns; \/\/ n_seqs elements$/;"	m	struct:__anon4
+appendToSAFile	bwtindex.c	/^static void appendToSAFile(char *dest_fn, char *src_fn)$/;"	f	file:
+arr	generateGraph.h	/^	Edge *arr ;$/;"	m	struct:EdgeArr
+arr	generateGraph.h	/^	Vertex *arr ;$/;"	m	struct:VertexArr
+arr	generateGraph.h	/^	kmer_t *arr ;$/;"	m	struct:KmerArr
+arr	mapToGraph.h	/^	MapInfo *arr ;$/;"	m	struct:MapIndex
+asm_flag	hwgsa_para.h	/^    uint8_t asm_flag:2; \/\/ denote which assembly phase used, note 1 used for all step of assembly pipeline, note 2 used for scaffold phase, 3 used for filling gap $/;"	m	struct:__anon6
+assignKmerToHash	generateGraph.c	/^void assignKmerToHash(HashTable *hashTable, HashTable *buffer, const int ID, int64_t *delay)$/;"	f
+availableWord	bwt_gen.h	/^	unsigned int availableWord;$/;"	m	struct:BWTInc
+availableWord	bwt_gen64.h	/^	uint64_t availableWord;$/;"	m	struct:BWTInc64
+average	bwt_gen.h	53;"	d
+base	generateGraph.h	/^    uint32_t base:2 ;$/;"	m	struct:kmer_info
+baseIndex	extend.h	/^    BaseISA *baseIndex;$/;"	m	struct:__anon25
+basememcat	generateGraph.c	/^void basememcat(uint8_t *dest,const size_t dest_size,const uint8_t *src,const size_t src_size)$/;"	f
+begin	seqIO.h	/^    int begin , end , is_eof ;$/;"	m	struct:__anon17
+bgint_t	bwt_gen.h	/^typedef uint64_t bgint_t;$/;"	t
+bit64ToChar	seqIO.c	/^void bit64ToChar(char *s, const uint64_t *bt, const int len)$/;"	f
+bit_nt_char	seqIO.c	/^const char bit_nt_char[] = {'c', 'a', 't', 'g' };$/;"	v
+bns2bntseq	bwtindex.c	/^void bns2bntseq(lib_info *libIndex_info, BntWriteArgs *bntWriteArgs, const Arguments *arguments)$/;"	f
+bnt	findOverlap.h	/^    uint8_t *bnt;$/;"	m	struct:__anon13
+bnt	seqIO.h	/^    uint64_t bnt[(MAXREADLEN>>5) + 1] ;$/;"	m	struct:__anon16
+bntBuf	hwgsa_para.h	/^    uint8_t *bntBuf ;$/;"	m	struct:__anon9
+bntWriteArgs	hwgsa_para.h	/^    BntWriteArgs *bntWriteArgs ;$/;"	m	struct:__anon10
+bntamb1_t	bntseq.h	/^} bntamb1_t;$/;"	t	typeref:struct:__anon3
+bntann1_t	bntseq.h	/^} bntann1_t;$/;"	t	typeref:struct:__anon2
+bntseq_t	bntseq.h	/^} bntseq_t;$/;"	t	typeref:struct:__anon4
+bntwritepacPE	bwtindex.c	/^void bntwritepacPE(LIB *libpe, BntWriteArgs *bargs, const  Arguments *arguments , omp_lock_t *lock_log )$/;"	f
+bntwritepacSE	bwtindex.c	/^void  bntwritepacSE(LIB *libse , BntWriteArgs *bargs , const  Arguments *arguments , omp_lock_t *lock_log)$/;"	f
+bound	hwgsa_para.h	/^    int64_t bound;$/;"	m	struct:__anon11
+branchKmers	generateGraph.h	/^    BranchKmer *branchKmers ;$/;"	m	struct:BranchQueue
+buf	seqIO.h	/^    char *buf ; $/;"	m	struct:__anon17
+buildRelativeRank64	bwt_merge.c	/^uint64_t buildRelativeRank64(uint64_t *relativeRank, const BWT64 *bwt64, const BWT *bwt, const unsigned int *packedShift, const int64_t start, const int64_t end, const int64_t bwt_sa, const int64_t bwt64_sa)$/;"	f
+buildRelativeRankFromOriginPac	bwt_merge.c	/^int64_t buildRelativeRankFromOriginPac(const char *fileName, uint64_t *relativeRank, const BWT64 *bwt64, const BWT *bwt, const int64_t start, const int64_t end, const int64_t bwt64_sa)$/;"	f
+buildSize	bwt_gen.h	/^	unsigned int buildSize;$/;"	m	struct:BWTInc
+buildSize	bwt_gen64.h	/^	unsigned int buildSize;$/;"	m	struct:BWTInc64
+bwa_bwt2sa	bwtmisc.c	/^int bwa_bwt2sa(int argc, char *argv[])$/;"	f
+bwa_bwtupdate	bwtmisc.c	/^int bwa_bwtupdate(int argc, char *argv[])$/;"	f
+bwa_pac2cspac_core	bwtmisc.c	/^uint8_t *bwa_pac2cspac_core(const bntseq_t *bns)$/;"	f
+bwa_pac_rev	bwtmisc.c	/^int bwa_pac_rev(int argc, char *argv[])$/;"	f
+bwa_pac_rev_core	bwtmisc.c	/^void bwa_pac_rev_core(const char *fn, const char *fn_rev)$/;"	f
+bwa_seq_len	bwtmisc.c	/^int64_t bwa_seq_len(const char *fn_pac)$/;"	f
+bwt	bwt.h	/^	uint32_t *bwt; \/\/ BWT$/;"	m	struct:__anon1
+bwt	bwt_gen.h	/^	BWT *bwt;$/;"	m	struct:BWTInc
+bwt	bwt_gen64.h	/^	BWT64 *bwt;$/;"	m	struct:BWTInc64
+bwtCode	bwt_gen.h	/^	unsigned int *bwtCode;				\/\/ BWT code$/;"	m	struct:BWT
+bwtCode	bwt_gen64.h	/^	uint32_t *bwtCode;				\/\/ BWT code compression state $/;"	m	struct:BWT64
+bwtIndex	bwtindex.c	/^int bwtIndex(lib_info *libIndex_info, BntWriteArgs *bntWriteArgs, Arguments *arguments)$/;"	f
+bwtLocation	bwt_gen64.h	/^    uint64_t bwtLocation ;$/;"	m	struct:DivideBoundary
+bwtSizeInWord	bwt_gen.h	/^	unsigned int bwtSizeInWord;			\/\/ Temporary variable to hold the memory allocated$/;"	m	struct:BWT
+bwtSizeInWord	bwt_gen64.h	/^	uint64_t bwtSizeInWord;			\/\/ Temporary variable to hold the memory allocated$/;"	m	struct:BWT64
+bwt_2occ	bwt.c	/^inline void bwt_2occ(const bwt_t *bwt, bwtint_t k, bwtint_t l, ubyte_t c, bwtint_t *ok, bwtint_t *ol)$/;"	f
+bwt_2occ4	bwt.c	/^inline void bwt_2occ4(const bwt_t *bwt, bwtint_t k, bwtint_t l, bwtint_t cntk[4], bwtint_t cntl[4])$/;"	f
+bwt_B0	bwt.h	73;"	d
+bwt_B00	bwtmisc.c	122;"	d	file:
+bwt_bwt	bwt.h	68;"	d
+bwt_bwtgen	bwt_gen.c	/^void bwt_bwtgen(const char *fn_pac, const char *fn_bwt)$/;"	f
+bwt_bwtgen_main	bwt_gen.c	/^int bwt_bwtgen_main(int argc, char *argv[])$/;"	f
+bwt_bwtupdate_core	bwtmisc.c	/^void bwt_bwtupdate_core(bwt_t *bwt)$/;"	f
+bwt_cal_sa	bwt.c	/^void bwt_cal_sa(bwt_t *bwt, int intv)$/;"	f
+bwt_destroy	bwtio.c	/^void bwt_destroy(bwt_t *bwt)$/;"	f
+bwt_dump_bwt	bwtio.c	/^void bwt_dump_bwt(const char *fn, const bwt_t *bwt)$/;"	f
+bwt_dump_sa	bwtio.c	/^void bwt_dump_sa(const char *fn, const bwt_t *bwt)$/;"	f
+bwt_gen_cnt_table	bwt.c	/^void bwt_gen_cnt_table(bwt_t *bwt)$/;"	f
+bwt_invPsi	bwt.h	79;"	d
+bwt_match_exact	bwt.c	/^int bwt_match_exact(const bwt_t *bwt, int len, const ubyte_t *str, bwtint_t *sa_begin, bwtint_t *sa_end)$/;"	f
+bwt_match_exact_alt	bwt.c	/^int bwt_match_exact_alt(const bwt_t *bwt, int len, const ubyte_t *str, bwtint_t *k0, bwtint_t *l0)$/;"	f
+bwt_occ	bwt.c	/^inline bwtint_t bwt_occ(const bwt_t *bwt, bwtint_t k, ubyte_t c)$/;"	f
+bwt_occ4	bwt.c	/^inline void bwt_occ4(const bwt_t *bwt, bwtint_t k, bwtint_t cnt[4])$/;"	f
+bwt_occ_intv	bwt.h	75;"	d
+bwt_restore_bwt	bwtio.c	/^bwt_t *bwt_restore_bwt(const char *fn)$/;"	f
+bwt_restore_bwt_core	bwtio.c	/^bwt_t *bwt_restore_bwt_core(const char *fn)$/;"	f
+bwt_restore_sa	bwtio.c	/^void bwt_restore_sa(const char *fn, bwt_t *bwt)$/;"	f
+bwt_sa	bwt.c	/^bwtint_t bwt_sa(const bwt_t *bwt, bwtint_t k)$/;"	f
+bwt_size	bwt.h	/^	bwtint_t bwt_size; \/\/ size of bwt, about seq_len\/4$/;"	m	struct:__anon1
+bwt_t	bwt.h	/^} bwt_t;$/;"	t	typeref:struct:__anon1
+bwtint_t	bwt.h	/^typedef uint64_t bwtint_t;$/;"	t
+calculateKmerFreqAndWriteToFile	bwtindex.c	/^void calculateKmerFreqAndWriteToFile(uint8_t *lcp, FILE *kmerFreqfp, uint64_t lcpLen)$/;"	f
+calculateRegion	extend.c	/^static inline Region calculateRegion(const bwt_t *bwt, const uint64_t *k, const int len)$/;"	f	file:
+calculateSA	bwt.c	/^uint64_t calculateSA(const bwt_t *bwt,  uint64_t isa)$/;"	f
+calculateSAAndGetBase	extend.c	/^SA_REV calculateSAAndGetBase(const bwt_t *bwt, int64_t isa)$/;"	f
+calculateSAAndRecoverBase	findOverlap.c	/^static inline int calculateSAAndRecoverBase(const bwt_t *bwt,  ReadInfo *ri, int64_t isa, ISABase *isaBase)$/;"	f	file:
+ceilLog2	bwt_gen.c	/^static unsigned int ceilLog2(const unsigned int input)$/;"	f	file:
+ceilLog2	bwt_gen64.c	/^static unsigned int ceilLog2(const unsigned int input)$/;"	f	file:
+chance_num	extend.h	/^    int chance_num ;$/;"	m	struct:__anon23
+checkAndAddISABase	findOverlap.c	/^static inline int checkAndAddISABase(ISABase *isaBase, const int64_t isa)$/;"	f	file:
+checkAndAddToReadBase	findOverlap.c	/^int checkAndAddToReadBase(const bwt_t *bwt, const lib_info *libIndex_info, ReadBase *rb, ISABase *isaBase, const int64_t isa, const int seed_len)$/;"	f
+checkAndConsistent	findOverlap.c	/^OverlapInfo checkAndConsistent(const bwt_t *bwt, const lib_info *libIndex_info, ReadBase *rb, ISABase *isaBase, const int64_t isa, const uint8_t *rev_bnt, const int seq_len, const int seq_start, const int seed_len, const int max_diff)$/;"	f
+checkExtendArgs	hwgsa_para.c	/^int checkExtendArgs(Arguments *arguments, FILE *fp)$/;"	f
+checkGenGraphArgs	hwgsa_para.c	/^int checkGenGraphArgs(Arguments *arguments, FILE *fp)$/;"	f
+checkInterLeave	bwtindex.c	/^static inline int checkInterLeave(const bwt_t *bwt, const int64_t low, const int64_t high)$/;"	f	file:
+checkNeedAddToMapIndex	extend.c	/^static inline int checkNeedAddToMapIndex(const int64_t bp, const Seq_region *sr, const int len, const int direction, const bwt_t *bwt, const ISABase *isaBase)$/;"	f	file:
+checkSA	hwgsa_para.c	/^int checkSA(const ReadLocation rl, const int64_t a, const int fixed_len)$/;"	f
+chooseBestMatch	extend.c	/^static inline int chooseBestMatch(const read_info *ri, const int num)$/;"	f	file:
+cigar	extend.h	/^    char cigar[MAX_UNMAP_REGION_ALLOW];$/;"	m	struct:__anon26
+cigar	mapToGraph.h	/^	char *cigar ; \/\/ map info string$/;"	m	struct:SaPos
+cigar	mapToGraph.h	/^	char *cigar ; \/\/ store the mapping information , format : "readID\\tstrand_orientation(+\/-)\\tReadLength\\tMapPath(StartPosition:[vertexID:]+endPosition)\\n"$/;"	m	struct:ReadMapInfo
+cigar	mapToGraph.h	/^  	char *cigar ;	$/;"	m	struct:MapInfo
+cigar_count	extend.h	/^    uint32_t cigar_count:4 ;$/;"	m	struct:__anon26
+clipTipsInGraph	generateGraph.c	/^int clipTipsInGraph(kmer_graph *initialGraph, KmerStack *kmerStack, const KmerFreqCurve curve, const int graphCount)$/;"	f
+cnt_table	bwt.h	/^	uint32_t cnt_table[256];$/;"	m	struct:__anon1
+comment	seqIO.h	/^    kstring_t comment;$/;"	m	struct:__anon20
+comment	seqIO.h	/^    kstring_t name, comment, seq, qual ;$/;"	m	struct:__anon19
+compare64	bwtindex.c	/^int compare64(const void *p, const void *q)$/;"	f
+compareLoc	mapToGraph.c	/^int compareLoc(const void *p, const void *q)$/;"	f
+compareOrder	extend.c	/^int compareOrder(const void *p, const void *q)$/;"	f
+comparePos	generateGraph.c	/^int comparePos(const void *p, const void *q)$/;"	f
+compareScore	extend.c	/^int compareScore(const void *p, const void *q)$/;"	f
+compare_KmerToVer	generateGraph.c	/^int compare_KmerToVer(const void *p, const void *q)$/;"	f
+compare_kmer	generateGraph.c	/^int compare_kmer(const void *p, const void *q)$/;"	f
+compare_pair_num	extend.c	/^int compare_pair_num(const void *p, const void *q)$/;"	f
+compleBnt	findOverlap.c	/^static inline uint8_t *compleBnt(const uint8_t *bnt_seq, const int len)$/;"	f	file:
+compressed_size	bwt_gen64.h	/^	uint64_t compressed_size ;		\/\/ total compressed size of the bwtCode $/;"	m	struct:BWT64
+conffile	hwgsa_para.h	/^    char conffile[PATH_LEN] ; \/\/ configure file $/;"	m	struct:Arguments
+consis_len	findOverlap.h	/^    int consis_len;$/;"	m	struct:__anon15
+constructUnitigPairInfo	extend.c	/^void constructUnitigPairInfo(ReadPos *readsHash, const int64_t readPair_num, UnitigPInfo *upi, FILE *readsMap_fp, lib_info *libInfo)$/;"	f
+count	extend.h	/^	int count, max;$/;"	m	struct:__anon31
+count	extend.h	/^    int count, max ;$/;"	m	struct:__anon25
+count	extend.h	/^    int count, max ;$/;"	m	struct:__anon27
+count	extend.h	/^    int count, max ;$/;"	m	struct:__anon36
+count	extend.h	/^    int count, max;$/;"	m	struct:__anon35
+count	extend.h	/^    int count, max;$/;"	m	struct:__anon41
+count	extend.h	/^    int count, max;$/;"	m	struct:__anon43
+count	extend.h	/^    int count, max;$/;"	m	struct:__anon45
+count	extend.h	/^    int count, max;$/;"	m	struct:__anon47
+count	extend.h	/^    int max, count;$/;"	m	struct:__anon38
+count	extend.h	/^    int64_t count, max ;$/;"	m	struct:__anon34
+count	findOverlap.h	/^    int count, max;$/;"	m	struct:__anon12
+count	findOverlap.h	/^    int count, max;$/;"	m	struct:__anon13
+count	findOverlap.h	/^    int count, max;$/;"	m	struct:__anon14
+count	generateGraph.h	/^	int count ;$/;"	m	struct:VertexArr
+count	generateGraph.h	/^	int size, count;$/;"	m	struct:KmerArr
+count	generateGraph.h	/^	long count ;$/;"	m	struct:VerticesIndex
+count	generateGraph.h	/^	long size, count ;$/;"	m	struct:EdgeArr
+count	generateGraph.h	/^    int count ;$/;"	m	struct:KmerStack
+count	generateGraph.h	/^    int count ;$/;"	m	struct:SNPset
+count	generateGraph.h	/^    int count ;$/;"	m	struct:kmer_graph
+count	generateGraph.h	/^    uint64_t count ;$/;"	m	struct:HashTable
+count	hwgsa_para.h	/^    int count ;$/;"	m	struct:__anon9
+count	mapToGraph.h	/^	int size, count ;	$/;"	m	struct:MapEdgeInfo
+count	mapToGraph.h	/^	int size, count ;$/;"	m	struct:SPArr
+count	mapToGraph.h	/^	int size, count;$/;"	m	struct:ReadMapStack
+count	mapToGraph.h	/^	int64_t size, count;$/;"	m	struct:MapIndex
+cumulativeCountInCurrentBuild	bwt_gen.h	/^	unsigned int *cumulativeCountInCurrentBuild;$/;"	m	struct:BWTInc
+cumulativeCountInCurrentBuild	bwt_gen64.h	/^	uint64_t *cumulativeCountInCurrentBuild;$/;"	m	struct:BWTInc64
+cumulativeFreq	bwt_gen.h	/^	unsigned int *cumulativeFreq;		\/\/ cumulative frequency$/;"	m	struct:BWT
+cumulativeFreq	bwt_gen64.h	/^	uint64_t *cumulativeFreq;		\/\/ cumulative frequency$/;"	m	struct:BWT64
+cur_pos	generateGraph.h	/^    int cur_pos ;$/;"	m	struct:BranchStack
+curprocess	generateGraph.h	/^    uint32_t curprocess:1 ; \/\/ in the processing state $/;"	m	struct:kmer_info
+db	findOverlap.h	/^    int64_t *db;$/;"	m	struct:__anon12
+decodeTable	bwt_gen.h	/^	unsigned int *decodeTable;			\/\/ For decoding BWT by table lookup$/;"	m	struct:BWT
+decodeTable	bwt_gen64.h	/^	unsigned int *decodeTable;			\/\/ For decoding BWT by table lookup$/;"	m	struct:BWT64
+decodeTableGenerated	bwt_gen.h	/^	unsigned int decodeTableGenerated;	\/\/ == TRUE if decode table is generated on load and will be freed$/;"	m	struct:BWT
+decodeTableGenerated	bwt_gen64.h	/^	unsigned int decodeTableGenerated;	\/\/ == TRUE if decode table is generated on load and will be freed$/;"	m	struct:BWT64
+deleted	extend.h	/^    uint32_t deleted:4 ;$/;"	m	struct:__anon26
+deleted	generateGraph.h	/^    uint32_t deleted:1 ; \/\/ tag whether deleteed$/;"	m	struct:kmer_info
+depth	bwtindex.h	/^    int16_t depth; \/\/ the len of backward cycle$/;"	m	struct:LCPBound
+depth	generateGraph.h	/^    int depth ; $/;"	m	struct:kmer_graph
+depth	generateGraph.h	/^    int depth ;$/;"	m	struct:BranchKmer
+depth	generateGraph.h	/^    int depth ;$/;"	m	struct:ThreadArgs
+depth	hwgsa_para.h	/^    int depth ; \/\/ the length of kmer Graph stretch$/;"	m	struct:Arguments
+direction	generateGraph.h	/^    uint32_t direction:1 ; \/\/ the strand of double strand$/;"	m	struct:kmer_info
+direction	generateGraph.h	/^    uint8_t direction ; \/\/ FORWARD and BACKWARD $/;"	m	struct:BranchKmer
+direction	generateGraph.h	/^    uint8_t direction ;$/;"	m	struct:ThreadArgs
+direction	generateGraph.h	/^    uint8_t direction ;$/;"	m	struct:kmer_graph
+distance	extend.h	/^    int distance ; \/\/ the distance to the processing position$/;"	m	struct:__anon24
+diverse	hwgsa_para.h	/^    uint8_t diverse:1 ;$/;"	m	struct:__anon6
+divideBoundary	bwt.h	/^    DivideBoundary *divideBoundary ;$/;"	m	struct:__anon1
+divideBoundary	bwt_gen64.h	/^    DivideBoundary *divideBoundary ;\/\/ The boundary of divided part $/;"	m	struct:BWT64
+divideNumber	bwt.h	/^    uint32_t divideNumber ;$/;"	m	struct:__anon1
+divideNumber	bwt_gen64.h	/^    uint32_t divideNumber ;         \/\/ The number of parts divided$/;"	m	struct:BWT64
+driver1	lookup3.c	/^void driver1()$/;"	f
+driver2	lookup3.c	/^void driver2()$/;"	f
+driver3	lookup3.c	/^void driver3()$/;"	f
+driver4	lookup3.c	/^ void driver4()$/;"	f
+driver5	lookup3.c	/^void driver5()$/;"	f
+dumpAndWriteStorage	bwtio.c	/^void dumpAndWriteStorage(const unsigned char *input,const int64_t start, const int64_t end, const char *fileName)$/;"	f
+edgeID	generateGraph.h	/^	int edgeID ;$/;"	m	struct:kmer_graph
+eg	extend.h	/^    EstimateGap *eg;$/;"	m	struct:__anon43
+ekArr	generateGraph.h	/^	KmerToVer *ekArr ; \/\/ end kmer&ID array$/;"	m	struct:VerticesIndex
+elem	seqIO.h	/^    faElem_t *elem;$/;"	m	struct:__anon21
+end	generateGraph.h	/^    int end ;$/;"	m	struct:BranchQueue
+end	seqIO.h	/^    int begin , end , is_eof ;$/;"	m	struct:__anon17
+endSaIndex	bwt_gen.h	/^	uint64_t endSaIndex;$/;"	m	struct:SaIndexRange
+err_fatal	utils.c	/^void err_fatal(const char *header, const char *fmt, ...)$/;"	f
+err_fatal_simple	utils.h	39;"	d
+err_fatal_simple_core	utils.c	/^void err_fatal_simple_core(const char *func, const char *msg)$/;"	f
+err_xopen_core	utils.c	/^FILE *err_xopen_core(const char *func, const char *fn, const char *mode)$/;"	f
+err_xreopen_core	utils.c	/^FILE *err_xreopen_core(const char *func, const char *fn, const char *mode, FILE *fp)$/;"	f
+err_xzopen_core	utils.c	/^gzFile err_xzopen_core(const char *func, const char *fn, const char *mode)$/;"	f
+estimateGap	extend.c	/^UnitigFlatten estimateGap(UnitigPairGapInfo *upgi, const faSeq_t *fs)$/;"	f
+extendCloud	extend.c	/^void extendCloud(const FILE *ugrm_fp, omp_lock_t *fpLock, const bwt_t *bwt, FILE *contig_fp, lib_info *libInfo)$/;"	f
+extendFirstCloud_core	extend.c	/^void extendFirstCloud_core(const OrderUnitigInfo *oui, const UGInfo *ugInfo, const bwt_t *bwt, const lib_info *libInfo)$/;"	f
+extendUnitig	extend.c	/^int extendUnitig(Arguments *arguments)$/;"	f
+extend_usage	extend.c	/^int extend_usage()$/;"	f
+extractKmerFromPac	bwtindex.c	/^void extractKmerFromPac(KmerFreq *kmerSABuf, uint64_t len ,FILE *kmerfp, uint8_t *pac, omp_lock_t *lock_kmerfp)$/;"	f
+extractUnitig	generateGraph.c	/^void extractUnitig(const Arguments *arguments, HashTable *hashTable, const int hashNumber, const KmerFreqCurve curve)$/;"	f
+f	seqIO.h	/^    gzFile f;$/;"	m	struct:__anon17
+f	seqIO.h	/^    kstream_t *f ;$/;"	m	struct:__anon19
+f1name	hwgsa_para.h	/^    char f1name[PATH_LEN] ;$/;"	m	struct:__anon8
+f2name	hwgsa_para.h	/^    char f2name[PATH_LEN] ;$/;"	m	struct:__anon8
+faElem_t	seqIO.h	/^} faElem_t ;$/;"	t	typeref:struct:__anon20
+faSeq_t	seqIO.h	/^} faSeq_t ;$/;"	t	typeref:struct:__anon21
+final	lookup3.c	151;"	d	file:
+findMinLibInsert	extend.c	/^static inline int findMinLibInsert(const lib_info *libInfo)$/;"	f	file:
+findNearestUnitig	extend.c	/^static inline int findNearestUnitig(const OrderUnitigInfo *oui, const int order, const int direction)$/;"	f	file:
+findOverlap	findOverlap.c	/^void findOverlap(Arguments *arguments, const char *readfileName, const int seed_len, const int max_diff)$/;"	f
+findOverlap_usage	findOverlap.c	/^int findOverlap_usage()$/;"	f
+findReliableRegion	bwtindex.c	/^static inline void findReliableRegion(const kstring_t seq, int *begin, int *end)$/;"	f	file:
+findSeqByID	extend.c	/^static inline findSeqByID(const faSeq_t *fs, const int unitigID)$/;"	f	file:
+find_next_prime_kh	generateGraph.c	/^static inline uint64_t find_next_prime_kh(uint64_t num) $/;"	f	file:
+firstCharInLastIteration	bwt_gen.h	/^	unsigned int firstCharInLastIteration;$/;"	m	struct:BWTInc
+firstCharInLastIteration	bwt_gen64.h	/^	unsigned int firstCharInLastIteration;$/;"	m	struct:BWTInc64
+flag	extend.h	/^    uint64_t flag:1 ;$/;"	m	struct:__anon32
+flag	extend.h	/^    uint64_t flag:2 ; \/\/  0 is initial state, 1 denote pair end read, 2 denote this is need map read , 3 denote this is deleted read $/;"	m	struct:__anon46
+flag	findOverlap.h	/^    uint8_t flag:1; \/\/ denote has been  mapped$/;"	m	struct:__anon15
+flag	generateGraph.h	/^    uint8_t flag ; \/\/ thread operation flag (0 is wait initial, 1 is wait for processing, 2 is on the processing state , 3 is finished ,4 is put kmer to hash table,  5 is exit from thread, )$/;"	m	struct:ThreadArgs
+fp_pac	bntseq.h	/^	FILE *fp_pac;$/;"	m	struct:__anon4
+freeMapEdgeInfo	mapToGraph.c	/^void freeMapEdgeInfo(MapEdgeInfo *meiArr, const int64_t size)$/;"	f
+freeMapIndex	mapToGraph.c	/^void freeMapIndex(MapIndex *mi)$/;"	f
+free_Arguments	hwgsa_para.c	/^void free_Arguments(Arguments * arguments)$/;"	f
+free_ReadBase	findOverlap.c	/^void free_ReadBase(ReadBase *rb)$/;"	f
+freq	bwtindex.h	/^    uint64_t freq:8 ;$/;"	m	struct:KmerFreq
+freq	bwtindex.h	/^    uint8_t freq ;$/;"	m	struct:KmerInfo
+freq	generateGraph.h	/^	uint8_t *freq ; \/\/ the kmer freq array, freq array length equal to s_size - KMER + 1 $/;"	m	struct:Vertex
+freq	generateGraph.h	/^    uint32_t freq:8 ;$/;"	m	struct:kmer_info
+freq	generateGraph.h	/^    uint8_t freq ;$/;"	m	struct:kmer_graph
+fs	extend.h	/^    faSeq_t fs;$/;"	m	struct:__anon39
+gap_len	extend.h	/^    int gap_len;$/;"	m	struct:__anon40
+gap_len	extend.h	/^    int gap_len;$/;"	m	struct:__anon42
+gap_len	extend.h	/^    int gap_len;$/;"	m	struct:__anon44
+genGraph_usage	generateGraph.c	/^int genGraph_usage()$/;"	f
+generateBWT	bwtindex.c	/^void generateBWT(const Arguments *arguments)$/;"	f
+generateKmerGraph	generateGraph.c	/^void generateKmerGraph(Arguments *arguments)$/;"	f
+getBaseAndSetSAFlag	extend.c	/^static SA_REV getBaseAndSetSAFlag(const bwt_t *bwt, int64_t isa, const int len)$/;"	f	file:
+getBinaryKmer	extend.c	/^static int getBinaryKmer(uint64_t *k, const char *s, int start, const int max, const int count)$/;"	f	file:
+getEdgeSeq	generateGraph.c	/^char *getEdgeSeq(const kmer_graph *kg, const KmerStack *ks)$/;"	f
+getForwardKmer	generateGraph.c	/^KmerArr *getForwardKmer(const kmer_t tk, HashTable *hashTable, const int hashNumber)$/;"	f
+getGraphEdge	generateGraph.c	/^static inline int getGraphEdge(BranchQueue *branchQueue, kmer_graph *initialGraph, KmerStack *kmerStack, HashTable *hashTable, const int hashNumber, const int s_flag)$/;"	f	file:
+getHashAddr	generateGraph.c	/^uint64_t getHashAddr(const HashTable *t , const uint64_t *kmer, const uint32_t len  )$/;"	f
+getKmer	bwtindex.c	/^void getKmer(uint64_t *kmer, const uint8_t *pac, const uint64_t start, const int len)$/;"	f
+getNextKmer	generateGraph.c	/^inline void getNextKmer(uint64_t *k ,uint64_t *input, uint8_t base , uint32_t len)$/;"	f
+getPreviousKmer	generateGraph.c	/^inline void getPreviousKmer(uint64_t *k, uint64_t *input, uint8_t base , uint32_t len)$/;"	f
+getReadLen	extend.c	/^static inline int getReadLen(char *cigar)$/;"	f	file:
+getRevKmer	bwt.c	/^void getRevKmer(const uint64_t *kmer, uint64_t *rkmer, const uint32_t len)$/;"	f
+getRevSeq64	bwt.c	/^static inline uint64_t getRevSeq64(uint64_t seq, const int seq_size)$/;"	f	file:
+getSeqRegion	extend.c	/^Seq_region *getSeqRegion(const char *s, const int start, const int length, const int max, const int direction)$/;"	f
+get_time_hash	generateGraph.c	/^static inline uint64_t get_time_hash(const uint64_t *key, const int kmerLenByWord)$/;"	f	file:
+gi	bntseq.h	/^	uint32_t gi;$/;"	m	struct:__anon2
+groupUnitigPInfo	extend.c	/^void groupUnitigPInfo(UnitigGroup *unitigGroup, const UnitigPInfo *unitigPInfo)$/;"	f
+hID	generateGraph.h	/^    int8_t hID ;  \/\/ hash ID, -1 denote have crash before, not need rewrite again, -2 denote rewrite as virgin $/;"	m	struct:KmerAddr
+hashbig	lookup3.c	/^uint32_t hashbig( const void *key, size_t length, uint32_t initval)$/;"	f
+hashlittle	lookup3.c	/^uint32_t hashlittle( const void *key, size_t length, uint32_t initval)$/;"	f
+hashlittle2	lookup3.c	/^void hashlittle2( $/;"	f
+hashmask	lookup3.c	69;"	d	file:
+hashsize	lookup3.c	68;"	d	file:
+hashword	lookup3.c	/^uint32_t hashword($/;"	f
+hashword2	lookup3.c	/^void hashword2 ($/;"	f
+hi	generateGraph.h	/^    uint32_t hi; \/\/ lookup kmer_info struct as a single whole$/;"	m	union:Ku
+high	bwt_gen64.h	/^	uint16_t high[2];$/;"	m	struct:SAValue
+high	bwtindex.h	/^    int64_t high ; \/\/ high bound$/;"	m	struct:LCPBound
+high	extend.h	/^    int64_t high;$/;"	m	struct:__anon22
+high	mapToGraph.h	/^	int64_t high ;$/;"	m	struct:ISARegion
+highQLen	seqIO.h	/^    uint8_t highQLen;$/;"	m	struct:__anon16
+highRepeatKmerNum	generateGraph.h	/^    int highRepeatKmerNum ; \/\/ the kmer_t freq >= 255 will be count $/;"	m	struct:kmer_graph
+hwgsa_all	hwgsa_all.c	/^int hwgsa_all(int argc, char *argv[])$/;"	f
+hwgsa_extend	HWGSA.c	/^int hwgsa_extend(int argc, char *argv[])$/;"	f
+hwgsa_extend	extend.c	/^int hwgsa_extend(int argc, char *argv[])$/;"	f
+hwgsa_findOverlap	HWGSA.c	/^int hwgsa_findOverlap(int argc, char *argv[])$/;"	f
+hwgsa_findOverlap	findOverlap.c	/^int hwgsa_findOverlap(int argc, char *argv[])$/;"	f
+hwgsa_genGraph	generateGraph.c	/^int hwgsa_genGraph(int argc , char *argv[])$/;"	f
+hwgsa_index	bwtindex.c	/^int hwgsa_index(int argc, char *argv[])$/;"	f
+hwgsa_mapToGraph	mapToGraph.c	/^int hwgsa_mapToGraph(int argc, char *argv[])$/;"	f
+hwgsa_scaffold	HWGSA.c	/^int hwgsa_scaffold(int argc, char *argv[])$/;"	f
+incMaxBuildSize	bwt_gen.h	/^	unsigned int incMaxBuildSize;$/;"	m	struct:BWTInc
+incMaxBuildSize	bwt_gen64.h	/^	unsigned int incMaxBuildSize;$/;"	m	struct:BWTInc64
+indegree	generateGraph.h	/^	uint8_t indegree:2 ; \/\/ the in-degree$/;"	m	struct:Vertex
+indel_num	extend.h	/^    uint32_t indel_num:4 ;$/;"	m	struct:__anon26
+indexReadsMapFile	extend.c	/^void indexReadsMapFile(const FILE *readsMap_fp, FILE *index_fp)$/;"	f
+indexStack	generateGraph.h	/^    int *indexStack ;$/;"	m	struct:BranchStack
+index_usage	bwtindex.c	/^int index_usage()$/;"	f
+info	generateGraph.h	/^    SNPinfo *info ;$/;"	m	struct:SNPset
+initialGraphStruct	generateGraph.c	/^kmer_graph *initialGraphStruct(const int initial_size, KmerStack *kmerStack, BranchQueue *branchQueue)$/;"	f
+initialKmer	generateGraph.h	/^    kmer_t initialKmer ; \/\/ initial kmer to process $/;"	m	struct:ThreadArgs
+initialKmer	generateGraph.h	/^    kmer_t initialKmer ;$/;"	m	struct:BranchKmer
+initialMaxBuildSize	bwt_gen.h	/^	unsigned int initialMaxBuildSize;$/;"	m	struct:BWTInc
+initialMaxBuildSize	bwt_gen64.h	/^	unsigned int initialMaxBuildSize;$/;"	m	struct:BWTInc64
+initializeVAL	bwt_gen.c	/^static void initializeVAL(unsigned int *startAddr, const unsigned int length, const unsigned int initValue)$/;"	f	file:
+initializeVAL	bwt_gen64.c	/^static void initializeVAL(unsigned int *startAddr, const uint64_t length, const unsigned int initValue)$/;"	f	file:
+initializeVAL64	bwt_gen64.c	/^static void initializeVAL64(uint64_t *startAddr, const uint64_t length, const int64_t initValue)$/;"	f	file:
+insert_SD	hwgsa_para.h	/^    uint32_t insert_SD ;$/;"	m	struct:__anon5
+insert_size	extend.h	/^    int *insert_size;$/;"	m	struct:__anon36
+insert_size	hwgsa_para.h	/^    uint32_t insert_size ;$/;"	m	struct:__anon5
+inverseSa	bwt_gen.h	/^	unsigned int *inverseSa;			\/\/ Inverse SA stored explicitly$/;"	m	struct:BWT
+inverseSa	bwt_gen64.h	/^	uint64_t *inverseSa;			\/\/ Inverse SA stored explicitly$/;"	m	struct:BWT64
+inverseSa0	bwt_gen.h	/^	unsigned int inverseSa0;			\/\/ SA-1[0]$/;"	m	struct:BWT
+inverseSa0	bwt_gen64.h	/^	uint64_t inverseSa0;			\/\/ SA-1[0]$/;"	m	struct:BWT64
+inverseSaInterval	bwt_gen.h	/^	unsigned int inverseSaInterval;		\/\/ interval between two inverse SA stored explicitly$/;"	m	struct:BWT
+inverseSaInterval	bwt_gen64.h	/^	uint64_t inverseSaInterval;		\/\/ interval between two inverse SA stored explicitly$/;"	m	struct:BWT64
+inverseSaSize	bwt_gen.h	/^	unsigned int inverseSaSize;			\/\/ Temporary variable to hold the memory allocated$/;"	m	struct:BWT
+inverseSaSize	bwt_gen64.h	/^	uint64_t inverseSaSize;			\/\/ Temporary variable to hold the memory allocated$/;"	m	struct:BWT64
+isDivide	bwt.h	/^    uint8_t isDivide ;$/;"	m	struct:__anon1
+isDivide	bwt_gen64.h	/^    uint8_t isDivide ;              \/\/ Set if divided construction method$/;"	m	struct:BWT64
+is_eof	seqIO.h	/^    int begin , end , is_eof ;$/;"	m	struct:__anon17
+is_prime_kh	generateGraph.c	/^static inline int is_prime_kh(uint64_t num) $/;"	f	file:
+isa	extend.h	/^    int64_t isa ; \/\/ the last isa$/;"	m	struct:__anon28
+isa	extend.h	/^    int64_t isa ; \/\/ the read base inverse SA$/;"	m	struct:__anon24
+isa	extend.h	/^    int64_t isa ;$/;"	m	struct:__anon26
+isa	findOverlap.h	/^    int64_t isa, sa;$/;"	m	struct:__anon13
+isa	mapToGraph.h	/^	int64_t isa;$/;"	m	struct:ISACache
+isaCache	mapToGraph.h	/^	IsaCache *isaCache ;$/;"	m	struct:ReadMapArg
+isaRegion	mapToGraph.h	/^	IsaRegion isaRegion ;$/;"	m	struct:ReadMapArg
+k	generateGraph.h	/^	kmer_t k ;$/;"	m	struct:KmerToVer
+k	generateGraph.h	/^    kmer_t k ;$/;"	m	struct:KmerAddr
+ki	generateGraph.h	/^    kmer_info ki;$/;"	m	union:Ku
+kmer	bwtindex.h	/^    uint64_t kmer[(MAX_KMER + 1 + 32 -1) \/ 32]; \/\/ len = KMER + 1 $/;"	m	struct:KmerInfo
+kmer	generateGraph.h	/^    uint64_t kmer[(MAX_KMER + 32 - 1) \/ 32];$/;"	m	struct:kmer_t
+kmerAddr	generateGraph.h	/^    KmerAddr *kmerAddr ;$/;"	m	struct:KmerStack
+kmerStack	generateGraph.h	/^    KmerStack kmerStack ;$/;"	m	struct:ThreadArgs
+kmer_graph	generateGraph.h	/^typedef struct kmer_graph {$/;"	s
+kmer_graph	generateGraph.h	/^} kmer_graph ;$/;"	t	typeref:struct:kmer_graph
+kmer_graph_index	generateGraph.h	/^    int kmer_graph_index ; $/;"	m	struct:ThreadArgs
+kmer_graph_index	generateGraph.h	/^    int kmer_graph_index ;$/;"	m	struct:BranchKmer
+kmer_info	generateGraph.h	/^typedef struct kmer_info {$/;"	s
+kmer_info	generateGraph.h	/^} kmer_info ;$/;"	t	typeref:struct:kmer_info
+kmer_t	generateGraph.h	/^typedef struct kmer_t {$/;"	s
+kmer_t	generateGraph.h	/^} kmer_t ;$/;"	t	typeref:struct:kmer_t
+kroundup32	seqIO.h	20;"	d
+ks_destroy	seqIO.c	/^static inline void ks_destroy(kstream_t *ks)$/;"	f	file:
+ks_eof	seqIO.h	17;"	d
+ks_getc	seqIO.c	/^static inline int ks_getc(kstream_t *ks)$/;"	f	file:
+ks_getuntil	seqIO.c	/^static int ks_getuntil(kstream_t *ks, int delimiter, kstring_t *str, int *dret)$/;"	f	file:
+ks_init	seqIO.c	/^static inline kstream_t *ks_init(gzFile f)$/;"	f	file:
+ks_rewind	seqIO.h	18;"	d
+kseqCopy2faElem	extend.c	/^void kseqCopy2faElem(const kseq_t *seq, faElem *fe )$/;"	f
+kseq_destroy	seqIO.c	/^void kseq_destroy(kseq_t *ks)$/;"	f
+kseq_init	seqIO.c	/^kseq_t *kseq_init(gzFile fd)$/;"	f
+kseq_read	seqIO.c	/^int kseq_read(kseq_t *seq)$/;"	f
+kseq_t	seqIO.h	/^} kseq_t ;$/;"	t	typeref:struct:__anon19
+kstream_t	seqIO.h	/^} kstream_t ;$/;"	t	typeref:struct:__anon17
+kstring_t	seqIO.h	/^} kstring_t ;$/;"	t	typeref:struct:__anon18
+ku	generateGraph.h	/^    Ku ku;$/;"	m	struct:kmer_t
+lGraph	generateGraph.h	/^    int lGraph[4]; \/\/ the start position of edge_contig left link$/;"	m	struct:kmer_graph
+lLink	generateGraph.h	/^    uint32_t lLink:4 ;$/;"	m	struct:kmer_info
+l_pac	bntseq.h	/^	int64_t l_pac;$/;"	m	struct:__anon4
+last_char	seqIO.h	/^    int last_char ;$/;"	m	struct:__anon19
+leadingZero	QSufSort.c	/^static unsigned int leadingZero(const unsigned int input) {$/;"	f	file:
+leadingZero	bwt_gen.c	/^static unsigned int leadingZero(const unsigned int input)$/;"	f	file:
+leadingZero	bwt_gen64.c	/^static unsigned int leadingZero(const unsigned int input)$/;"	f	file:
+len	bntseq.h	/^	int32_t len;$/;"	m	struct:__anon2
+len	bntseq.h	/^	int32_t len;$/;"	m	struct:__anon3
+len	extend.h	/^	int len; \/\/ unitig length$/;"	m	struct:__anon44
+len	extend.h	/^	int len[2]; \/\/ the length of unitig pair$/;"	m	struct:__anon40
+len	extend.h	/^    int len ;$/;"	m	struct:__anon23
+len	extend.h	/^    int len, max; \/\/ the base length$/;"	m	struct:__anon28
+len	mapToGraph.h	/^	uint32_t len:LEN_WIDTH ; \/\/ the length of read mapped$/;"	m	struct:MapInfo
+len	seqIO.h	/^    int len;$/;"	m	struct:__anon21
+len	seqIO.h	/^    uint8_t  len ;$/;"	m	struct:__anon16
+lenMajor	hwgsa_para.h	/^    uint64_t *lenMajor; \/\/ the index length of Major between LEN_INTERVAL_MAJOR$/;"	m	struct:__anon6
+len_pac	hwgsa_para.h	/^    int64_t len_pac ; \/\/ length of package $/;"	m	struct:__anon7
+length	hwgsa_para.h	/^    READ_SIZE *length ;$/;"	m	struct:__anon6
+length	hwgsa_para.h	/^    int length[2];$/;"	m	struct:__anon11
+lib	hwgsa_para.h	/^    LIB *lib ;$/;"	m	struct:__anon7
+libIndex_info	hwgsa_para.h	/^    lib_info *libIndex_info ;$/;"	m	struct:__anon10
+lib_info	hwgsa_para.h	/^} lib_info ; \/\/ library information  of package$/;"	t	typeref:struct:__anon7
+lib_infoFree	hwgsa_para.c	/^void lib_infoFree(lib_info *libIndex_info)$/;"	f
+lib_info_restore	hwgsa_para.c	/^lib_info *lib_info_restore(const char *filename)$/;"	f
+loadFactor	generateGraph.h	/^    double loadFactor ;$/;"	m	struct:HashTable
+loc	mapToGraph.h	/^	int loc ; \/\/ loc of SA$/;"	m	struct:SaPos
+loc	mapToGraph.h	/^	int loc ; \/\/ loc of kmer coordinate$/;"	m	struct:ISACache
+loc	mapToGraph.h	/^	uint64_t loc:30 ; \/\/ the loc position of edges$/;"	m	struct:ReadLoc
+locPos	seqIO.h	/^    size_t locPos, max ;$/;"	m	struct:__anon18
+locateLCPBound	findOverlap.c	/^static inline LCPBound locateLCPBound(const uint8_t *lcp, const int64_t len, const int64_t loc)$/;"	f	file:
+logfp	hwgsa_para.h	/^    FILE *logfp ; \/\/ the file pointer of log$/;"	m	struct:Arguments
+lookUpBound	hwgsa_para.c	/^static inline ReadLocation lookUpBound(const LIB *lib, int64_t position, const int flag)$/;"	f	file:
+low	bwt_gen64.h	/^	uint32_t low[2];$/;"	m	struct:SAValue
+low	bwtindex.h	/^    int64_t low ; \/\/ low bound $/;"	m	struct:LCPBound
+low	extend.h	/^    int64_t low;$/;"	m	struct:__anon22
+low	mapToGraph.h	/^	int64_t low ;$/;"	m	struct:ISARegion
+lvertex	generateGraph.h	/^	int lvertex[4] ;$/;"	m	struct:Edge
+lvertex	generateGraph.h	/^	int lvertex[4];$/;"	m	struct:Vertex
+main	HWGSA.c	/^int main(int argc, char *argv[])$/;"	f
+main	bwt_gen.c	/^int main(int argc, char *argv[])$/;"	f
+map2Unitig	extend.c	/^int map2Unitig(const Arguments *arguments, const faElem_t *fe, const int start, const int end, omp_lock_t *fpLock, const bwt_t *bwt, const lib_info *libInfo, FILE *readsMap_fp)$/;"	f
+mapFlankContig	extend.c	/^static ReadPool mapFlankContig(faElem_t *fe, const int begin, UGInfo *ugInfo, const bwt_t *bwt, const lib_info *libInfo, const int step_len, ISABase *isaBase)$/;"	f	file:
+mapLine	extend.h	/^	char mapLine[MAX_MAPFILE_LINE_LENGTH];$/;"	m	struct:__anon30
+mapToGraph_usage	mapToGraph.c	/^int mapToGraph_usage()$/;"	f
+masklow32	utils.c	/^const uint32_t masklow32[ ] = {$/;"	v
+masklow64	utils.c	/^const uint64_t masklow64[ ] = {$/;"	v
+masklow8	utils.c	/^const uint8_t masklow8[ ] = {$/;"	v
+max	bwt_gen.h	55;"	d
+max	extend.h	/^	int count, max;$/;"	m	struct:__anon31
+max	extend.h	/^    int count, max ;$/;"	m	struct:__anon25
+max	extend.h	/^    int count, max ;$/;"	m	struct:__anon27
+max	extend.h	/^    int count, max ;$/;"	m	struct:__anon36
+max	extend.h	/^    int count, max;$/;"	m	struct:__anon35
+max	extend.h	/^    int count, max;$/;"	m	struct:__anon41
+max	extend.h	/^    int count, max;$/;"	m	struct:__anon43
+max	extend.h	/^    int count, max;$/;"	m	struct:__anon45
+max	extend.h	/^    int count, max;$/;"	m	struct:__anon47
+max	extend.h	/^    int len, max; \/\/ the base length$/;"	m	struct:__anon28
+max	extend.h	/^    int max, count;$/;"	m	struct:__anon38
+max	extend.h	/^    int64_t count, max ;$/;"	m	struct:__anon34
+max	findOverlap.h	/^    int count, max;$/;"	m	struct:__anon12
+max	findOverlap.h	/^    int count, max;$/;"	m	struct:__anon13
+max	findOverlap.h	/^    int count, max;$/;"	m	struct:__anon14
+max	hwgsa_para.h	/^    int max ;$/;"	m	struct:__anon9
+max	seqIO.h	/^    int max ;$/;"	m	struct:__anon21
+max	seqIO.h	/^    size_t locPos, max ;$/;"	m	struct:__anon18
+maxMem	hwgsa_para.h	/^    int maxMem ; \/\/ suffix is the Giga(G)$/;"	m	struct:Arguments
+maxReadLen	hwgsa_para.h	/^	int maxReadLen ; $/;"	m	struct:Arguments
+max_diff	findOverlap.h	/^    int max_diff;$/;"	m	struct:__anon15
+max_indel_len	extend.h	/^    int8_t max_indel_len; \/\/ max gap extention length allow$/;"	m	struct:__anon29
+max_indel_num	extend.h	/^    int8_t max_indel_num; \/\/ max proportion of gap number allow, e.g define 2 , and read length 100, max allow two gaps$/;"	m	struct:__anon29
+max_mismatch	extend.h	/^    int8_t max_mismatch; \/\/ max proportion of mismatch number allow$/;"	m	struct:__anon29
+max_rd_len	hwgsa_para.h	/^    int max_rd_len; \/\/ maximum read length$/;"	m	struct:__anon7
+mb	extend.h	/^    MapBase mb; $/;"	m	struct:__anon39
+mbIndex	extend.h	/^    int mbIndex; \/\/ the index of MapBase$/;"	m	struct:__anon28
+med3	bwt_gen.h	56;"	d
+mergeBWT64	bwt_merge.c	/^BWTInc64 *mergeBWT64(BWTInc64 *bwtInc64, const BWTInc *bwtInc, const int divideCount, const char *fileName, const int num_threads)$/;"	f
+mergeBWTInc64	bwt_merge.c	/^uint32_t *mergeBWTInc64(const uint64_t* __restrict relativeRank, BWTInc64 *bwtInc64, const BWTInc *bwtInc, const int num_threads)$/;"	f
+mergeBWTInc64_1209	bwt_merge.c	/^uint32_t *mergeBWTInc64_1209(const uint64_t* __restrict relativeRank, BWTInc64 *bwtInc64, const BWTInc *bwtInc)$/;"	f
+mergeBWTInc64_part	bwt_merge.c	/^void mergeBWTInc64_part(const uint64_t *relativeRank, const int64_t start, const int64_t end, uint32_t *part_merged, const uint32_t *part_bwtCode64, const int64_t bwtCode64_start, const int64_t bwtCode64_end, BWTInc64 *bwtInc64, const BWTInc *bwtInc, const int64_t *sentinelPosition)$/;"	f
+mergeBWTInc64_single	bwt_merge.c	/^uint32_t *mergeBWTInc64_single(const uint64_t* __restrict relativeRank, BWTInc64 *bwtInc64, const BWTInc *bwtInc)$/;"	f
+mergeSort	bwtindex.c	/^void mergeSort(const KmerFreq *src1, const  uint64_t src1Len, const KmerFreq *src2, const uint64_t src2Len, KmerFreq *dest)$/;"	f
+mergeSortRank64	bwt_merge.c	/^void mergeSortRank64(const uint64_t *src1, const int64_t src1_len, const uint64_t *src2, const int64_t src2_len, uint64_t *dest)$/;"	f
+min	bwt_gen.h	54;"	d
+minReadLen	hwgsa_para.h	/^	int minReadLen ;$/;"	m	struct:Arguments
+min_flank	extend.h	/^    int8_t min_flank; \/\/ min flank length of read two end not allow indels$/;"	m	struct:__anon29
+min_kmerfreq	hwgsa_para.h	/^    int min_kmerfreq ; \/\/minimum kmer frequency for construct De bruijn graph, must >=2 $/;"	m	struct:Arguments
+min_step	extend.h	/^    int8_t min_step; \/\/ the minumun distance between indels$/;"	m	struct:__anon29
+min_unitig_len	hwgsa_para.h	/^    int min_unitig_len ; \/\/ minimum length of unitig for output to *.unitig file$/;"	m	struct:Arguments
+mismatch_num	extend.h	/^    uint32_t mismatch_num:4 ; $/;"	m	struct:__anon26
+mix	lookup3.c	116;"	d	file:
+mlinfo	extend.h	/^	MapLineInfo *mlinfo;$/;"	m	struct:__anon31
+n_ambs	bntseq.h	/^	int32_t n_ambs;$/;"	m	struct:__anon2
+n_holes	bntseq.h	/^	int32_t n_holes;$/;"	m	struct:__anon4
+n_sa	bwt.h	/^	bwtint_t n_sa;$/;"	m	struct:__anon1
+n_seqs	bntseq.h	/^	int32_t n_seqs;$/;"	m	struct:__anon4
+name	bntseq.h	/^	char *name, *anno;$/;"	m	struct:__anon2
+name	hwgsa_para.h	/^    char *name ;$/;"	m	struct:__anon6
+name	seqIO.h	/^    kstring_t name ;$/;"	m	struct:__anon20
+name	seqIO.h	/^    kstring_t name, comment, seq, qual ;$/;"	m	struct:__anon19
+nst_color_space_table	bwtmisc.c	/^const int nst_color_space_table[] = { 4, 0, 0, 1, 0, 2, 3, 4, 0, 3, 2, 4, 1, 4, 4, 4};$/;"	v
+nst_nt4_table	seqIO.c	/^const unsigned char nst_nt4_table[256] = {$/;"	v
+num_lib	hwgsa_para.h	/^    int32_t num_lib; \/\/ number of library by libPE, libSE$/;"	m	struct:__anon7
+num_seqs	hwgsa_para.h	/^    int64_t num_seqs ; \/\/ number of reads $/;"	m	struct:__anon7
+numberOfIterationDone	bwt_gen.h	/^	unsigned int numberOfIterationDone;$/;"	m	struct:BWTInc
+numberOfIterationDone	bwt_gen64.h	/^	unsigned int numberOfIterationDone;$/;"	m	struct:BWTInc64
+number_rd	hwgsa_para.h	/^    uint32_t number_rd ;$/;"	m	struct:__anon6
+occMajor	bwt.h	/^    bwtint_t *occMajor ;$/;"	m	struct:__anon1
+occMajorSizeInWord	bwt_gen.h	/^	unsigned int occMajorSizeInWord;	\/\/ Temporary variable to hold the memory allocated$/;"	m	struct:BWT
+occMajorSizeInWord	bwt_gen64.h	/^	uint64_t occMajorSizeInWord;	\/\/ Temporary variable to hold the memory allocated$/;"	m	struct:BWT64
+occSizeInWord	bwt_gen.h	/^	unsigned int occSizeInWord;			\/\/ Temporary variable to hold the memory allocated$/;"	m	struct:BWT
+occSizeInWord	bwt_gen64.h	/^	uint64_t occSizeInWord;			\/\/ Temporary variable to hold the memory allocated$/;"	m	struct:BWT64
+occValue	bwt_gen.h	/^	unsigned int *occValue;				\/\/ Occurrence values stored explicitly$/;"	m	struct:BWT
+occValue	bwt_gen64.h	/^	unsigned int *occValue;				\/\/ Occurrence values stored explicitly$/;"	m	struct:BWT64
+occValueMajor	bwt_gen.h	/^	unsigned int *occValueMajor;		\/\/ Occurrence values stored explicitly$/;"	m	struct:BWT
+occValueMajor	bwt_gen64.h	/^	uint64_t *occValueMajor;		\/\/ Occurrence major values stored explicitly$/;"	m	struct:BWT64
+oe	extend.h	/^    OrderElem *oe;$/;"	m	struct:__anon45
+offset	bntseq.h	/^	int64_t offset;$/;"	m	struct:__anon2
+offset	bntseq.h	/^	int64_t offset;$/;"	m	struct:__anon3
+offset	extend.h	/^    int64_t offset ;$/;"	m	struct:__anon37
+offset	hwgsa_para.h	/^    uint64_t offset ;$/;"	m	struct:__anon6
+order	extend.h	/^    int order;$/;"	m	struct:__anon44
+order	extend.h	/^    uint32_t order:1 ; \/\/ 0 note the first read of pair end reads, 1 note the second read of pair end reads$/;"	m	struct:__anon26
+order	extend.h	/^    uint64_t order:1 ;$/;"	m	struct:__anon46
+orderUnitigFlatten	extend.c	/^static OrderUnitigInfo orderUnitigFlatten(UnitigScaff *us, const UGInfo *ugInfo)$/;"	f	file:
+origin_graph_index	generateGraph.h	/^    int origin_graph_index ;$/;"	m	struct:kmer_graph
+origin_graph_index	generateGraph.h	/^    int origin_graph_index;$/;"	m	struct:BranchKmer
+origin_graph_index	generateGraph.h	/^    int origin_graph_index;$/;"	m	struct:ThreadArgs
+outdegree	generateGraph.h	/^	uint8_t outdegree:2 ; \/\/ the out-degree$/;"	m	struct:Vertex
+outputDir	hwgsa_para.h	/^    char outputDir[PATH_LEN] ;$/;"	m	struct:Arguments
+pac_rev_core	bwtio.c	/^void pac_rev_core(const char *filename)$/;"	f
+pac_seq_len	bwtio.c	/^int64_t pac_seq_len(const char *filename)$/;"	f
+packedShift	bwt_gen.h	/^	unsigned int *packedShift;$/;"	m	struct:BWTInc
+packedShift	bwt_gen64.h	/^	unsigned int *packedShift;$/;"	m	struct:BWTInc64
+packedText	bwt_gen.h	/^	unsigned int *packedText;$/;"	m	struct:BWTInc
+packedText	bwt_gen64.h	/^	unsigned int *packedText;$/;"	m	struct:BWTInc64
+pair_head_sa	extend.h	/^    int64_t pair_head_sa;$/;"	m	struct:__anon26
+pair_head_sa	extend.h	/^    uint64_t pair_head_sa:56 ;$/;"	m	struct:__anon46
+pair_num	extend.h	/^    int pair_num;$/;"	m	struct:__anon33
+paired	hwgsa_para.h	/^	int paired:1; \/\/ if reads in pair end library, set paired = 1 else paired = 0$/;"	m	struct:__anon11
+paired	hwgsa_para.h	/^    uint8_t paired ;$/;"	m	struct:__anon8
+paired	hwgsa_para.h	/^    uint8_t paired:1 ;$/;"	m	struct:__anon6
+parseConffile	hwgsa_para.c	/^PConfReturn *parseConffile(char *conffile)$/;"	f
+parseKmerFreqFile	bwtindex.c	/^KmerFreqCurve parseKmerFreqFile(const char *kmerFreq_name, Arguments *arguments)$/;"	f
+pe	hwgsa_para.h	/^	PE pe;$/;"	m	struct:__anon11
+pe	hwgsa_para.h	/^    PE  pe ;$/;"	m	struct:__anon6
+peak	bwtindex.h	/^    uint8_t peak ;$/;"	m	struct:KmerFreqCurve
+pos	extend.h	/^    uint64_t pos:47 ;$/;"	m	struct:__anon32
+posSA2PosBWT	bwtindex.c	/^inline int64_t posSA2PosBWT(const bwt_t *bwt, const int64_t isa)$/;"	f
+posSA2PosBWT64	bwt_merge.c	/^static inline int64_t posSA2PosBWT64(BWT64 *bwt, const int64_t isa)$/;"	f	file:
+posSAChangeToPosBWT	findOverlap.c	/^static inline int64_t posSAChangeToPosBWT(const bwt_t *bwt, const int64_t isa, const int flag)$/;"	f	file:
+position	generateGraph.h	/^    int position ;$/;"	m	struct:SNPinfo
+preProcessArgs	hwgsa_para.c	/^void preProcessArgs(Arguments *arguments)$/;"	f
+prefix	hwgsa_para.h	/^    char prefix[PATH_LEN] ; \/\/ the prefix of the output file (contain outpufDir)$/;"	m	struct:Arguments
+primary	bwt.h	/^	bwtint_t primary; \/\/ S^{-1}(0), or the primary index of BWT$/;"	m	struct:__anon1
+processToKmer	generateGraph.c	/^static inline void processToKmer(KmerInfo *kmerBuf, kmer_t *kmer, const int  len, int flag)$/;"	f	file:
+processed	generateGraph.h	/^    uint32_t processed:1 ; \/\/ denote if has been processed $/;"	m	struct:kmer_info
+processed	generateGraph.h	/^    uint8_t processed:1 ; \/\/ marking if have been processed$/;"	m	struct:kmer_graph
+pushToBuf	generateGraph.c	/^static inline void pushToBuf(HashTable *buf, kmer_t *kmer, kmer_t *rkmer, const int kmerLenByWord, const uint32_t freq , const int hashNumber, int64_t *delay )$/;"	f	file:
+qual	extend.h	/^    kstring_t seq, qual;$/;"	m	struct:__anon46
+qual	hwgsa_para.h	/^    int qual ; \/\/minimum  quality requirement$/;"	m	struct:Arguments
+qual	seqIO.h	/^    kstring_t name, comment, seq, qual ;$/;"	m	struct:__anon19
+qual	seqIO.h	/^    kstring_t qual;$/;"	m	struct:__anon20
+qualBuf	hwgsa_para.h	/^    uint8_t *qualBuf ;$/;"	m	struct:__anon9
+qual_benchmark	hwgsa_para.h	/^    uint8_t qual_benchmark; \/\/ the benchmark of quality score, strength suggest use phred+33$/;"	m	struct:__anon6
+rGraph	generateGraph.h	/^    int rGraph[4]; \/\/ the start position of edge_contig right link$/;"	m	struct:kmer_graph
+rLink	generateGraph.h	/^    uint32_t rLink:4 ;$/;"	m	struct:kmer_info
+readAlignCore	extend.c	/^static inline void readAlignCore(const uint8_t *ref, const int ref_len, const uint8_t *qur, const int qur_len, AlignLimit alignLimit, read_info *ri)$/;"	f	file:
+readID	hwgsa_para.h	/^	int64_t readID ;$/;"	m	struct:__anon11
+readLocArr	mapToGraph.h	/^	ReadLoc *readLocArr ;$/;"	m	struct:MapEdgeInfo
+readName	hwgsa_para.h	/^    ReadName *readName ;$/;"	m	struct:__anon9
+readUnitigGroupInfo	extend.c	/^int readUnitigGroupInfo(UGInfo *ugInfo, FILE *ugrm_fp)$/;"	f
+read_bnt	seqIO.h	/^} read_bnt ;$/;"	t	typeref:struct:__anon16
+read_head_sa	extend.h	/^    int64_t read_head_sa ;$/;"	m	struct:__anon26
+read_info	extend.h	/^} read_info ;$/;"	t	typeref:struct:__anon26
+read_len	extend.h	/^    int read_len ;$/;"	m	struct:__anon26
+read_len	extend.h	/^    uint64_t read_len:16 ;$/;"	m	struct:__anon32
+read_len	hwgsa_para.h	/^    READ_SIZE read_len ;$/;"	m	struct:__anon6
+read_type	extend.h	/^    uint32_t read_type:4 ; \/\/ 1 note Illumina\/solexa, 2 note 454 $/;"	m	struct:__anon26
+rebuildUnitigPInfoHash	extend.c	/^void rebuildUnitigPInfoHash(const UnitigPInfo *upi, UnitigPInfo *newP, const int64_t new_size)$/;"	f
+recoverBase	findOverlap.c	/^static inline int recoverBase(const bwt_t *bwt, ReadInfo *ri, const int len, ISABase *isaBase)$/;"	f	file:
+ref_name	extend.h	/^    char *ref_name;$/;"	m	struct:__anon26
+ref_pos	extend.h	/^    int ref_pos;$/;"	m	struct:__anon32
+ref_position	extend.h	/^	int ref_position;$/;"	m	struct:__anon26
+removingGraphTips	generateGraph.c	/^void removingGraphTips(HashTable *hashTable, const int hashNumber, const int id, const KmerFreqCurve curve)$/;"	f
+resetHashTable	generateGraph.c	/^void resetHashTable(HashTable *hashTable, const int hashNumber, const int index)$/;"	f
+restoreUnitigLocTable	extend.c	/^void restoreUnitigLocTable(FILE *index_fp, UnitigLocTable *ult)$/;"	f
+restore_lcp	bwtio.c	/^uint8_t *restore_lcp(const char *fn, const int64_t seq_len)$/;"	f
+retV	generateGraph.h	/^    uint8_t retV ; \/\/ 0 note exit normally,1 note encounter a node that have processed just now in this kmer graph, 2 note run up to a have been processed node, 3 note encounter a branch node, 4 note encounter a tip terminal$/;"	m	struct:ThreadArgs
+retainLen	mapToGraph.h	/^	int retainLen ; \/\/ the retain length of upmapped$/;"	m	struct:SaPos
+revBnt	findOverlap.c	/^static inline uint8_t *revBnt(const uint8_t *bnt_seq, const int len)$/;"	f	file:
+revcompleBnt	findOverlap.c	/^static inline uint8_t *revcompleBnt(const uint8_t *bnt_seq, const int len)$/;"	f	file:
+reverseBitBase	extend.c	/^static inline void reverseBitBase(uint8_t *s, const int len)$/;"	f	file:
+reverseSeq_region	extend.c	/^static inline void reverseSeq_region(Seq_region *sr)$/;"	f	file:
+ri	extend.h	/^    read_info *ri ;$/;"	m	struct:__anon27
+ri	findOverlap.h	/^    ReadInfo *ri;$/;"	m	struct:__anon14
+rl	findOverlap.h	/^	ReadLocation rl;$/;"	m	struct:__anon13
+rl	mapToGraph.h	/^	ReadLocation rl ;$/;"	m	struct:SaPos
+rma	mapToGraph.h	/^	ReadMapArg *rma ;$/;"	m	struct:ReadMapStack
+rot	lookup3.c	70;"	d	file:
+rs	extend.h	/^    ReadSeq *rs;$/;"	m	struct:__anon47
+rvertex	generateGraph.h	/^	int rvertex[4] ;$/;"	m	struct:Edge
+rvertex	generateGraph.h	/^	int rvertex[4];$/;"	m	struct:Vertex
+s	extend.h	/^    uint8_t *s ; \/\/ the base sequence$/;"	m	struct:__anon28
+s	extend.h	/^    uint8_t *s[3];$/;"	m	struct:__anon23
+s	seqIO.h	/^    char *s ;$/;"	m	struct:__anon18
+s_size	generateGraph.h	/^	int s_size ; \/\/ the seq length $/;"	m	struct:Vertex
+sa	bwt.h	/^	bwtint_t *sa; \/\/ the leftmost high 8 bit used denote whether SA have been accessed, 1 note has been accessed$/;"	m	struct:__anon1
+sa	bwtindex.h	/^    uint64_t sa:56 ;$/;"	m	struct:KmerFreq
+sa	extend.h	/^    int64_t sa ; \/\/ the SA of calculateSA$/;"	m	struct:__anon28
+sa	findOverlap.h	/^    int64_t isa, sa;$/;"	m	struct:__anon13
+sa	mapToGraph.h	/^	int64_t sa ;  \/\/ note the begin of read in the .pac$/;"	m	struct:SaPos
+saIndexRange	bwt_gen.h	/^	SaIndexRange *saIndexRange;			\/\/ SA index range$/;"	m	struct:BWT
+saIndexRange	bwt_gen64.h	/^	SaIndexRange *saIndexRange;			\/\/ SA index range$/;"	m	struct:BWT64
+saIndexRangeNumOfChar	bwt_gen.h	/^	int saIndexRangeNumOfChar;			\/\/ Number of characters indexed in SA index range$/;"	m	struct:BWT
+saIndexRangeNumOfChar	bwt_gen64.h	/^	int64_t saIndexRangeNumOfChar;			\/\/ Number of characters indexed in SA index range$/;"	m	struct:BWT64
+saIndexRangeSize	bwt_gen.h	/^	unsigned int saIndexRangeSize;		\/\/ Temporary variable to hold the memory allocated$/;"	m	struct:BWT
+saIndexRangeSize	bwt_gen64.h	/^	uint64_t saIndexRangeSize;		\/\/ Temporary variable to hold the memory allocated$/;"	m	struct:BWT64
+saInterval	bwt_gen.h	/^	unsigned int saInterval;			\/\/ interval between two SA values stored explicitly$/;"	m	struct:BWT
+saInterval	bwt_gen64.h	/^	uint64_t saInterval;			\/\/ interval between two SA values stored explicitly$/;"	m	struct:BWT64
+saValue	bwt_gen.h	/^	unsigned int *saValue;				\/\/ SA values stored explicitly$/;"	m	struct:BWT
+saValue	bwt_gen64.h	/^	SAValue *saValue;				\/\/ SA values stored explicitly$/;"	m	struct:BWT64
+saValueOnBoundary	bwt_gen.h	/^	unsigned int *saValueOnBoundary;	\/\/ Pre-calculated frequently referred data$/;"	m	struct:BWT
+saValueOnBoundary	bwt_gen64.h	/^	uint64_t *saValueOnBoundary;	\/\/ Pre-calculated frequently referred data$/;"	m	struct:BWT64
+saValueSize	bwt_gen.h	/^	unsigned int saValueSize;			\/\/ Temporary variable to hold the memory allocated$/;"	m	struct:BWT
+saValueSize	bwt_gen64.h	/^	uint64_t saValueSize;			\/\/ Temporary variable to hold the memory allocated$/;"	m	struct:BWT64
+sa_intv	bwt.h	/^	int sa_intv;$/;"	m	struct:__anon1
+saveDebruijnGraph	generateGraph.c	/^void saveDebruijnGraph(const Arguments *arguments, HashTable *hashTable, const int hashNumber, const KmerFreqCurve curve)$/;"	f
+saveKmerSA	bwtindex.c	/^void saveKmerSA(const uint8_t *lcp , bwt_t *bwt , uint64_t start , const uint64_t end ,const lib_info *libIndex_info, FILE *kmerSAfp, const int min_kmerfreq, const int lcp_fixed_len)$/;"	f
+sbgint_t	bwt_gen.h	/^typedef int64_t sbgint_t;$/;"	t
+score	extend.h	/^    double score;$/;"	m	struct:__anon40
+score	extend.h	/^    uint32_t score:4 ; \/\/ the macth score, no mismatch is note 0, mismatch mapped note 1~ 14, 0XF note unmapped$/;"	m	struct:__anon26
+searchISABase	extend.c	/^static inline int searchISABase(const ISABase *isaBase, const int64_t isa)$/;"	f	file:
+searchReadBaseBySa	findOverlap.c	/^static inline int searchReadBaseBySa(const ReadBase *rb, const int64_t sa)$/;"	f	file:
+searchULPos	extend.c	/^int searchULPos(const UnitigLocTable *ult, const int unitigID)$/;"	f
+searchUnitigLength	extend.c	/^static inline int searchUnitigLength(const faSeq_t *fs, const int unitigID)$/;"	f	file:
+searchWithInUnitigFlatten	extend.c	/^static inline int searchWithInUnitigFlatten(const OrderUnitigInfo *oui, const int unitigID)$/;"	f	file:
+seed	bntseq.h	/^	uint32_t seed;$/;"	m	struct:__anon4
+sentinelPosition	bwt.h	/^    uint64_t *sentinelPosition ;$/;"	m	struct:__anon1
+sentinelPosition	bwt_gen64.h	/^    uint64_t *sentinelPosition ;    \/\/ The positions of sentinels '$' in the BWT code $/;"	m	struct:BWT64
+sentinelSA	bwt.h	/^    uint64_t *sentinelSA ;$/;"	m	struct:__anon1
+sentinelSA	bwt_gen64.h	/^    uint64_t *sentinelSA ;          \/\/ The SA of the sentinels corresponding sentinelPosition$/;"	m	struct:BWT64
+seq	extend.h	/^    kstring_t seq, qual;$/;"	m	struct:__anon46
+seq	generateGraph.h	/^	char *seq ; \/\/ the sequence string$/;"	m	struct:kmer_graph
+seq	generateGraph.h	/^	char *seq ;$/;"	m	struct:Vertex
+seq	seqIO.h	/^    kstring_t name, comment, seq, qual ;$/;"	m	struct:__anon19
+seq	seqIO.h	/^    kstring_t seq ;$/;"	m	struct:__anon20
+seq_len	bwt.h	/^	bwtint_t seq_len; \/\/ sequence length$/;"	m	struct:__anon1
+seq_len	hwgsa_para.h	/^    uint64_t seq_len ;$/;"	m	struct:Arguments
+seq_len	hwgsa_para.h	/^    uint64_t seq_len ;$/;"	m	struct:__anon9
+seq_profile	hwgsa_para.h	/^    uint8_t seq_profile:3; \/\/ denote the data origin $/;"	m	struct:__anon6
+serial	hwgsa_para.h	/^	int serial:2; \/\/ serial note the number of readID$/;"	m	struct:__anon11
+setBWTLCP	bwtindex.c	/^void setBWTLCP(const bwt_t *bwt, uint8_t *lcp, const uint64_t word_part, const int depth, const int first_len, const int min_kmerfreq)$/;"	f
+setBWTSA	bwtindex.c	/^uint64_t setBWTSA(bwt_t *bwt, const int64_t start, const int64_t end,  const int offset , const int divideCount )$/;"	f
+setEdgeDirectionFlag	generateGraph.c	/^kmer_t setEdgeDirectionFlag(HashTable *hashTable, const int hashNumber, const KmerAddr ka)$/;"	f
+setHashInfo	generateGraph.c	/^void setHashInfo(HashTable *hashTable)$/;"	f
+setUnitigQuality	extend.c	/^static void setUnitigQuality(faElem_t *fe, const int begin, const int end)$/;"	f	file:
+simplifyGraph	generateGraph.c	/^void simplifyGraph(HashTable *hashTable, const int hashNumber, const int id, const KmerFreqCurve curve)$/;"	f
+size	generateGraph.h	/^	int size, count;$/;"	m	struct:KmerArr
+size	generateGraph.h	/^	long size ;$/;"	m	struct:VertexArr
+size	generateGraph.h	/^	long size ;$/;"	m	struct:VerticesIndex
+size	generateGraph.h	/^	long size, count ;$/;"	m	struct:EdgeArr
+size	generateGraph.h	/^    int size ; $/;"	m	struct:kmer_graph
+size	generateGraph.h	/^    int size ;$/;"	m	struct:BranchQueue
+size	generateGraph.h	/^    int size ;$/;"	m	struct:KmerStack
+size	generateGraph.h	/^    int size ;$/;"	m	struct:SNPset
+size	generateGraph.h	/^    int size;$/;"	m	struct:BranchStack
+size	generateGraph.h	/^    uint64_t size ;$/;"	m	struct:HashTable
+size	hwgsa_para.h	/^	int size: 24; \/\/ size note the length of certain read length$/;"	m	struct:__anon11
+size	mapToGraph.h	/^	int size ; \/\/ the size of cigar$/;"	m	struct:SaPos
+size	mapToGraph.h	/^	int size ;$/;"	m	struct:ReadMapInfo
+size	mapToGraph.h	/^	int size, count ;	$/;"	m	struct:MapEdgeInfo
+size	mapToGraph.h	/^	int size, count ;$/;"	m	struct:SPArr
+size	mapToGraph.h	/^	int size, count;$/;"	m	struct:ReadMapStack
+size	mapToGraph.h	/^	int64_t size, count;$/;"	m	struct:MapIndex
+skArr	generateGraph.h	/^	KmerToVer *skArr ; \/\/ start kmer&ID array$/;"	m	struct:VerticesIndex
+smallOrCloseSearch	bwt_merge.c	/^uint64_t smallOrCloseSearch(const uint64_t *relativeRank, const uint64_t bwtLocation, const uint64_t size)$/;"	f
+sp	mapToGraph.h	/^	SaPos *sp ;$/;"	m	struct:SPArr
+spArr	mapToGraph.h	/^	SPArr *spArr;$/;"	m	struct:ReadMapArg
+stackOffset	generateGraph.h	/^    int  stackOffset ; \/\/ the offset of kmerStack $/;"	m	struct:kmer_graph
+start	generateGraph.h	/^    int start ;$/;"	m	struct:BranchQueue
+startLoc	mapToGraph.h	/^	int startLoc ;$/;"	m	struct:ReadMapArg
+startSaIndex	bwt_gen.h	/^	uint64_t startSaIndex;$/;"	m	struct:SaIndexRange
+state	generateGraph.h	/^	uint32_t state:2 ; \/\/ note the state of kmer_t$/;"	m	struct:kmer_info
+state	generateGraph.h	/^    int state ; \/\/ the state of terminal position, same as retV of ThreadArgs$/;"	m	struct:kmer_graph
+stepLen2Next	extend.c	/^static inline int stepLen2Next(const char *s, const int step_len)$/;"	f	file:
+strand	extend.h	/^    uint32_t strand:1 ; \/\/ 0 denote '+', 1 denote '-'$/;"	m	struct:__anon26
+strand	mapToGraph.h	/^	uint32_t strand:1 ; \/\/ 0 note + strand, 1 note - strand$/;"	m	struct:MapInfo
+strand	seqIO.h	/^    uint32_t strand:1;$/;"	m	struct:__anon20
+superBlockIndex	bwt_gen64.h	/^	uint64_t *superBlockIndex;		\/\/ super block index of bwtCode$/;"	m	struct:BWT64
+swap	bwt_gen.h	57;"	d
+table	generateGraph.h	/^    kmer_t *table;$/;"	m	struct:HashTable
+targetNBit	bwt_gen.h	/^	float targetNBit;$/;"	m	struct:BWTInc
+targetNBit	bwt_gen64.h	/^	float targetNBit;$/;"	m	struct:BWTInc64
+targetTextLength	bwt_gen.h	/^	unsigned int targetTextLength;$/;"	m	struct:BWTInc
+targetTextLength	bwt_gen64.h	/^	uint64_t targetTextLength;$/;"	m	struct:BWTInc64
+textBuffer	bwt_gen.h	/^	unsigned char *textBuffer;$/;"	m	struct:BWTInc
+textBuffer	bwt_gen64.h	/^	unsigned char *textBuffer;$/;"	m	struct:BWTInc64
+textLength	bwt_gen.h	/^	unsigned int textLength;			\/\/ length of the text$/;"	m	struct:BWT
+textLength	bwt_gen64.h	/^	uint64_t textLength;			\/\/ length of the text$/;"	m	struct:BWT64
+textLocation	bwt_gen64.h	/^    uint64_t textLocation ;$/;"	m	struct:DivideBoundary
+transformKmerToString	bwtio.c	/^char *transformKmerToString(const uint64_t *buf, const int64_t start, const int64_t end)$/;"	f
+transformPacToString	bwtio.c	/^char *transformPacToString(const uint8_t *buf, const int64_t start, const int64_t end)$/;"	f
+transformSeq2bnt	findOverlap.c	/^static inline uint8_t *transformSeq2bnt(const kstring_t seq)$/;"	f	file:
+truncateLeft	bwt_gen.h	58;"	d
+truncateRight	bwt_gen.h	59;"	d
+ubyte_t	bntseq.h	/^typedef uint8_t ubyte_t;$/;"	t
+ubyte_t	bwt.h	/^typedef unsigned char ubyte_t;$/;"	t
+uf	extend.h	/^    UnitigFlatten *uf;$/;"	m	struct:__anon41
+ugID	extend.h	/^    int ugID; \/\/ unitigGroup ID$/;"	m	struct:__anon39
+ul	extend.h	/^    UnitigLoc *ul;$/;"	m	struct:__anon38
+unitigID	extend.h	/^    int unitigID ;$/;"	m	struct:__anon37
+unitigID	extend.h	/^    int unitigID ;$/;"	m	struct:__anon44
+unitigID	extend.h	/^    int unitigID;$/;"	m	struct:__anon32
+unitigID	extend.h	/^    int unitigID[2];$/;"	m	struct:__anon33
+unitigID	extend.h	/^    int unitigID[2];$/;"	m	struct:__anon40
+unitigID	extend.h	/^    int unitigID[2];$/;"	m	struct:__anon43
+unitigPInfo	extend.h	/^    UnitigPInfo *unitigPInfo;$/;"	m	struct:__anon35
+unitigPairInfoFlatten	extend.c	/^UnitigScaff unitigPairInfoFlatten(const UGInfo *ugInfo, const lib_info *libInfo)$/;"	f
+unitig_pairs	extend.h	/^    Unitig_pair *unitig_pairs;$/;"	m	struct:__anon34
+updataLCP	bwtindex.c	/^static inline void updataLCP(uint8_t *lcp, const int64_t len)$/;"	f	file:
+updateOrder	extend.c	/^static inline void updateOrder(OrderUnitigInfo *oui, const int order, const int direction)$/;"	f	file:
+upi	extend.h	/^    UnitigPInfo upi; $/;"	m	struct:__anon39
+usage	HWGSA.c	/^static int usage()$/;"	f	file:
+vID	mapToGraph.h	/^	uint32_t vID ; \/\/ the ID of vertex$/;"	m	struct:SaPos
+vID	mapToGraph.h	/^	uint32_t vID ;$/;"	m	struct:ReadMapArg
+valley	bwtindex.h	/^    uint8_t valley ;$/;"	m	struct:KmerFreqCurve
+variant	generateGraph.h	/^    uint32_t variant:1 ; \/\/ flag whether has a SNP $/;"	m	struct:kmer_info
+vertexID	generateGraph.h	/^	int vertexID ; \/\/ if kmer has two side branchs,  -1 note left branch, 1 note rigth branch$/;"	m	struct:kmer_graph
+workingMemory	bwt_gen.h	/^	unsigned int *workingMemory;$/;"	m	struct:BWTInc
+workingMemory	bwt_gen64.h	/^	unsigned int *workingMemory;$/;"	m	struct:BWTInc64
+write2Ugrm	extend.c	/^void write2Ugrm(FILE *ugrm_fp, const UnitigLocTable *ult, FILE *readsMap_fp, const UnitigGroup *unitigGroup)$/;"	f
+writeArgsToFile	hwgsa_para.c	/^void writeArgsToFile(const Arguments *arguments, FILE *fp)$/;"	f
+writeInfo2Ann	hwgsa_para.c	/^void writeInfo2Ann(const char *fn, lib_info *libIndex_info)$/;"	f
+writeKmerToHashTable	generateGraph.c	/^int writeKmerToHashTable(KmerStack *kmerStack, HashTable *hashTable)$/;"	f
+writeUnitig2File	generateGraph.c	/^inline void writeUnitig2File(const uint8_t *contig, const SNPset *set, const int len , FILE *fp, const int freq, const int contigID )$/;"	f
+xassert	utils.h	43;"	d
+xcalloc	utils.c	/^void *xcalloc(size_t nmemb, size_t size)$/;"	f
+xopen	utils.h	40;"	d
+xrecalloc	utils.c	/^void *xrecalloc(void *ptr, size_t size)$/;"	f
+xreopen	utils.h	41;"	d
+xzopen	utils.h	42;"	d

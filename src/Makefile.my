@@ -1,0 +1,36 @@
+#include Makefile.builddir
+#include $(builddir)/Makefile.mk
+CC=     gcc 
+CXX=    g++
+
+#Options for development
+CFLAGS=     -g -pg -Wall -m64 -fopenmp -std=gnu99 
+#Options for release 
+#CFLAGS=     -g -Wall -O2 -m64 -fopenmp std=gnu99
+DFLAGS=     -D_FILE_OFFSET_BITS=64
+LIBS=       -lm -lz -Lbwt_gen -lbwtgen
+SUBDIRS=    . bwt_gen
+
+
+all: seqIO.o utils.o bwt.o
+
+lib-recur all-recur clean-recur cleanlocal-recur install-recur:
+        @targe=`echo $@ | sed s/-recur//` ;     \
+        wdir=`pwd` ;  \
+        list=`$(SUBDIRS)` ; for subdir in $$list; do \
+        cd $$subdir ;   \
+        $(MAKE) CC="$(CC)" CXX="$(CXX)" DFLAGS="$(DFLAGS)" CFLAGS="$(CFLAGS)" \
+            INCLUDES="$(INCLUDES)" $$target || exit 1 ; \
+        cd $$wdir ; \
+        done;
+
+lib:
+
+
+#bwtindex.o: bwtindex.cpp bwtindex.h seqIO.h bwt.h utils.h
+#	$(CXX) $(CPPFLAGS) $(INCLUDE) $(DEPFLAGS) -c bwtindex.cpp
+bwt.o: bwt.c utils.h bwt.h
+seqIO.o: seqIO.c seqIO.h utils.h
+utils.o: utils.c utils.h
+        $(CC) $(CFLAGS) -c bwt.c seqIO.c utils.c
+

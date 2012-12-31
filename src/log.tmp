@@ -1,0 +1,22 @@
+generateGraph.c: In function ‘writeUnitig2File’:
+generateGraph.c:821: warning: control reaches end of non-void function
+bwtindex.c:1849: warning: ‘appendToSAFile’ defined but not used
+bwt_merge.c: In function ‘mergeBWTInc64_single’:
+bwt_merge.c:334: warning: initialization from incompatible pointer type
+bwt_merge.c: In function ‘mergeBWT64’:
+bwt_merge.c:788: warning: assignment from incompatible pointer type
+bwt_merge.c:816: warning: passing argument 1 of ‘BWTGenerateOccValueFromBwt64’ from incompatible pointer type
+bwt_gen64.h:140: note: expected ‘const unsigned int *’ but argument is of type ‘uint8_t *’
+bwt_gen64.c: In function ‘BWTOccValue64’:
+bwt_gen64.c:610: warning: passing argument 1 of ‘ForwardDNAOccCount’ from incompatible pointer type
+bwt_gen64.c:523: note: expected ‘const unsigned int *’ but argument is of type ‘uint8_t * const’
+bwt_gen64.c:612: warning: passing argument 1 of ‘BackwardDNAOccCount’ from incompatible pointer type
+bwt_gen64.c:554: note: expected ‘const unsigned int *’ but argument is of type ‘uint8_t * const’
+bwt_gen64.c: In function ‘BWTQSort64’:
+bwt_gen64.c:680: warning: unused variable ‘tempSeq’
+bwt_gen64.c: In function ‘BWTIncConstruct64’:
+bwt_gen64.c:1552: warning: passing argument 2 of ‘BWTIncMergeBwt64’ from incompatible pointer type
+bwt_gen64.c:1092: note: expected ‘const unsigned int *’ but argument is of type ‘uint8_t *’
+bwt_gen64.c:1558: warning: assignment from incompatible pointer type
+bwt_gen64.c:1570: warning: passing argument 1 of ‘BWTGenerateOccValueFromBwt64’ from incompatible pointer type
+bwt_gen64.c:1229: note: expected ‘const unsigned int *’ but argument is of type ‘uint8_t *’

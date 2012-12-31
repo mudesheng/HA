@@ -1,0 +1,2 @@
+hwgsa_para.o: In function `preProcessArgs':
+/ifs1/ST_ASMB/USER/mudesheng/Development/HWGSA/hwgsa_para.c:66: warning: the use of `mktemp' is dangerous, better use `mkstemp'
