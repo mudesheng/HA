@@ -114,16 +114,11 @@ void preProcessArgs(Arguments *arguments)
         }
     }
     
-    if(arguments->qual != 0)
-    {
-        if((arguments->qual < 1) || (arguments->qual > 4))
-        {
-            fprintf(stderr, "argument 'q' must between 1~4, program exit....\n");
-            exit(1);
-        }
-    } else {
-        arguments->qual = 3 ;
-    }
+	if((arguments->qual < 0) || (arguments->qual > 3))
+	{
+		fprintf(stderr, "argument 'q' must between 1~4, program exit....\n");
+		exit(1);
+	}
 
     if(arguments->H != 0)
     {
@@ -518,12 +513,96 @@ void free_Arguments(Arguments * arguments)
     //free(arguments->outputDir);
     free(arguments);
 }
-// flag note FORWARD , BACKWARD and BIDIRECTION , find the read start position
+static inline ReadLocation lookUpBound(const LIB *lib, int64_t position)
+{
+    ReadLocation rl; memset(&rl, 0, sizeof(ReadLocation));
+    position -= lib->offset ;
+    if(lib->diverse == 1)
+    {
+        int64_t len,lastLen, i;
+        int64_t lenMajorSize = (lib->number_rd + LEN_INTERVAL_MAJOR - 1) / LEN_INTERVAL_MAJOR  + 1; 
+        int64_t low = 0 ,mid,high  = lenMajorSize - 1;
+        while(low <= high)
+        {
+            mid = (low + high) / 2 ;
+            if(position == lib->lenMajor[mid]) break ;
+            if(position < lib->lenMajor[mid]) high = mid - 1 ;
+            else low = mid + 1 ;
+        }
+        if(lib->lenMajor[mid] < position) {low = mid; high = mid+1; }
+        else {low = mid - 1; high = mid; }
+		len = lib->lenMajor[low]; lastLen = lib->lenMajor[low];
+		i = low * LEN_INTERVAL_MAJOR ;
+		while(len <= position)
+		{
+			lastLen = len ;
+			len += lib->length[i];
+			i++;
+		}
+		i-- ;
+		if(lib->paired == 1)
+		{
+			rl.paired = 1 ;
+			rl.pe = lib->pe ;
+			rl.readID = i ;
+			if(i % 2 == 0) { rl.serial = 0; }
+			else { rl.serial = 1; i--; lastLen -= lib->length[i];}
+			rl.bound = lib->offset + lastLen ;
+			rl.length[0] = lib->length[i];
+			rl.length[1] = lib->length[i+1];
+		} else { // single end library
+			rl.bound = lib->offset + lastLen ;
+			rl.length[0] = lib->length[i];
+			rl.readID = i ;
+			rl.serial = 0 ;
+		}
+    } else {
+        int64_t num_offset = position / lib->read_len ;
+		if(lib->paired == 1)
+		{
+			rl.paired = 1;
+			rl.pe = lib->pe ;
+			rl.readID = num_offset ;
+			if(num_offset % 2 == 0) { rl.serial = 0 ;  }
+			else { rl.serial = 1; num_offset--; }
+			rl.bound = lib->offset + num_offset * lib->read_len ;
+			rl.length[0] = lib->read_len ;
+			rl.length[1] = lib->read_len ;
+		} else { // single end library
+			rl.bound = lib->offset + num_offset * lib->read_len ;
+			rl.length[0] = lib->read_len ;
+			rl.readID = num_offset ;
+			rl.serial = 0 ;
+		}
+    }
+	// reset bound of readLocation
+    return rl;
+}
+
+
+ReadLocation ReadBoundaryLookup(const lib_info *libIndex_info, const int64_t position)
+{
+    ReadLocation rl;
+    int i ;
+   	int64_t num_reads = 0; 
+    for(i = 1; i < libIndex_info->num_lib ; i++)
+    {
+        if(position >= libIndex_info->lib[i].offset) { num_reads += libIndex_info->lib[i-1].number_rd ; }
+		else { break; }
+    }
+
+    rl = lookUpBound(&(libIndex_info->lib[i-1]), position);
+	rl.readID += num_reads ;
+    
+    return rl;
+}
+
+
+/* flag note FORWARD , BACKWARD and BIDIRECTION , find the read(or pair reads)start position
 static inline ReadLocation lookUpBound(const LIB *lib, int64_t position, const int flag)
 {
     ReadLocation rl;
     position -= lib->offset ;
-	position /= 2; // the offset set by all forward and reverse strand 
     if(lib->diverse == 1)
     {
         int64_t len,lastLen, i;
@@ -608,8 +687,7 @@ static inline ReadLocation lookUpBound(const LIB *lib, int64_t position, const i
 }
 
 
-
-// flag note FOWARD , BACKWARD and BIDIRECTION , return readID of all sorted library 
+// flag note FORWARD , BACKWARD and BIDIRECTION , return readID of all sorted library 
 ReadLocation ReadBoundaryLookup(const lib_info *libIndex_info, const int64_t position, const int flag)
 {
     ReadLocation rl;
@@ -625,7 +703,7 @@ ReadLocation ReadBoundaryLookup(const lib_info *libIndex_info, const int64_t pos
 	rl.readID += num_reads ;
     
     return rl;
-}
+} 
  
 
 // if sa < rl region, return rl.bound == -1 , else return read start postion sa, read length set in rl.length[0]
@@ -701,7 +779,7 @@ ReadLocation LocateStartSA(const int64_t sa, const ReadLocation rl, const int fl
 		}
 	}
 	return retRl;
-}
+} */
 
 
 int checkSA(const ReadLocation rl, const int64_t a, const int fixed_len)

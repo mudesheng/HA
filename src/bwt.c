@@ -102,7 +102,7 @@ void bwt_gen_cnt_table(bwt_t *bwt)
 	}
 }
 
-// bwt->bwt and bwt->occ must be precalculated
+/*// bwt->bwt and bwt->occ must be precalculated
 void bwt_cal_sa(bwt_t *bwt, int intv)
 {
 	bwtint_t isa, sa, i; // S(isa) = sa
@@ -112,7 +112,7 @@ void bwt_cal_sa(bwt_t *bwt, int intv)
 	if (bwt->sa) free(bwt->sa);
 	bwt->sa_intv = intv;
 	bwt->n_sa = (bwt->seq_len + intv) / intv;
-	bwt->sa = (bwtint_t*)calloc(bwt->n_sa, sizeof(bwtint_t));
+	bwt->sa = (uint32_t*)xcalloc(bwt->n_sa, sizeof(uint32_t));
 	// calculate SA value
 	isa = 0; sa = bwt->seq_len;
 	for (i = 0; i < bwt->seq_len; ++i) {
@@ -122,7 +122,7 @@ void bwt_cal_sa(bwt_t *bwt, int intv)
 	} 
 	if (isa % intv == 0) bwt->sa[isa/intv] = sa;
 	bwt->sa[0] = (bwtint_t)-1; // before this line, bwt->sa[0] = bwt->seq_len
-}
+}*/
 
 bwtint_t bwt_sa(const bwt_t *bwt, bwtint_t k)
 {

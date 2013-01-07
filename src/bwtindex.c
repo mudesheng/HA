@@ -110,15 +110,24 @@ static inline uint8_t adjustQuality(const char quality, const int benchmark)
     return q ;
 }
 
+inline void AlignBnt(uint8_t *bnt_buf, const int64_t bntbuf_count)
+{
+	uint8_t r = bntbuf_count % CHAR_PER_BYTE ;
+	if(r != 0)
+	{
+		bnt_buf[bntbuf_count/CHAR_PER_BYTE] <<= ((CHAR_PER_BYTE - r)<<1) ;
+	}
+}
+
 // read sequence from raw Pairs End file and transform to bits package
 void bntwritepacPE(LIB *libpe, BntWriteArgs *bargs, const  Arguments *arguments , omp_lock_t *lock_log )
 {
     const int qualitycutoff = arguments->qual;
     const int K = arguments->K ;
     const int benchmark = libpe->qual_benchmark;
-    int64_t bntbuf_count =0, qualbuf_count = 0, max_buf = BUF_SIZE ;
+    int64_t bntbuf_count =0, max_buf = BUF_SIZE ;
     uint8_t *bnt_buf = (uint8_t*)xcalloc(max_buf,sizeof(uint8_t));
-    uint8_t *qual_buf = (uint8_t*)xcalloc(max_buf/2,sizeof(uint8_t));
+    uint8_t *qual_buf = (uint8_t*)xcalloc(max_buf,sizeof(uint8_t));
     int64_t max_length_buf_size = INI_SIZE, processed_rd = 0; 
 
     for(int i = 0 ; i < bargs->count ; i++)
@@ -190,11 +199,11 @@ void bntwritepacPE(LIB *libpe, BntWriteArgs *bargs, const  Arguments *arguments 
 					}
 				} else noQual = 1 ;
 				// extending bntbuf and qual_buf at same time
-				if(bntbuf_count + (rd1_len + rd2_len)*2 >= (max_buf<<2))
+				if(bntbuf_count + (rd1_len + rd2_len) >= (max_buf<<2))
 				{
 					max_buf <<= 1 ;
 					bnt_buf = (uint8_t*)xrecalloc(bnt_buf , max_buf * sizeof(uint8_t));
-					qual_buf = (uint8_t*)xrecalloc(qual_buf , (max_buf/2) * sizeof(uint8_t));
+					qual_buf = (uint8_t*)xrecalloc(qual_buf , max_buf * sizeof(uint8_t));
 				}
 				// write to the file and buffer memory
 				for(int i = rd1_begin; i < rd1_begin + rd1_len; i++)
@@ -202,30 +211,28 @@ void bntwritepacPE(LIB *libpe, BntWriteArgs *bargs, const  Arguments *arguments 
 					uint8_t c = nst_nt4_table[(int)seq_1->seq.s[i]];
 					bnt_buf[bntbuf_count>>2] <<= BIT_PER_CHAR ;
 					bnt_buf[bntbuf_count>>2] |=  c ;
-					bntbuf_count++ ;
 					// change q to [0,3]
 					uint8_t q ;
 					if(noQual == 0) q = adjustQuality(seq_1->qual.s[i], benchmark);
 					else q = 2; // if no quality value to provided, set quality is 2
-					qual_buf[qualbuf_count>>2] <<= BIT_PER_CHAR ;
-					qual_buf[qualbuf_count>>2] |= q ;
-					qualbuf_count++ ;
+					qual_buf[bntbuf_count>>2] <<= BIT_PER_CHAR ;
+					qual_buf[bntbuf_count>>2] |= q ;
+					bntbuf_count++ ;
 				}
 				for(int i = rd2_begin ; i < rd2_begin + rd2_len; i++)
 				{
 					uint8_t  c = nst_nt4_table[(int)seq_2->seq.s[i]];
 					bnt_buf[bntbuf_count>>2] <<= BIT_PER_CHAR ;
 					bnt_buf[bntbuf_count>>2] |= c ;
-					bntbuf_count++ ;
 					// change q to [0,3]
 					uint8_t q ;
 					if(noQual == 0) q = adjustQuality(seq_2->qual.s[i], benchmark);
 					else q = 2; // if no quality value to provided, set quality is 2
-					qual_buf[qualbuf_count>>2] <<= BIT_PER_CHAR ;
-					qual_buf[qualbuf_count>>2] |= q ;
-					qualbuf_count++ ;
+					qual_buf[bntbuf_count>>2] <<= BIT_PER_CHAR ;
+					qual_buf[bntbuf_count>>2] |= q ;
+					bntbuf_count++ ;
 				}
-				// write reverse-complement strand to the buffer
+				/* write reverse-complement strand to the buffer
 				{
 					int64_t buf_end = bntbuf_count ;
 					uint8_t last_char = bnt_buf[(buf_end -1)>>2] ;
@@ -242,7 +249,7 @@ void bntwritepacPE(LIB *libpe, BntWriteArgs *bargs, const  Arguments *arguments 
 						bnt_buf[bntbuf_count>>2] |= (~c & 0x03) ;
 						bntbuf_count++;
 					}
-				}
+				}*/
 				//free(rever_com);
 				// add read length information
 				if(libpe->diverse == 1)
@@ -277,12 +284,13 @@ void bntwritepacPE(LIB *libpe, BntWriteArgs *bargs, const  Arguments *arguments 
 
 	// finalize the buffer 
 	{
+		AlignBnt(bnt_buf, bntbuf_count);
+		AlignBnt(qual_buf, bntbuf_count);
 		uint64_t bc = (bntbuf_count + CHAR_PER_BYTE - 1) / CHAR_PER_BYTE ;        
-		uint64_t qc = (qualbuf_count + CHAR_PER_BYTE - 1) / CHAR_PER_BYTE ;        
 		if(max_buf > bc)
 		{
 			bnt_buf = (uint8_t*)realloc(bnt_buf , bc * sizeof(uint8_t)) ;
-			qual_buf = (uint8_t*)realloc(qual_buf , qc * sizeof(uint8_t));
+			qual_buf = (uint8_t*)realloc(qual_buf , bc * sizeof(uint8_t));
 		}
 		bargs->bntBuf = bnt_buf ;
 		bargs->qualBuf = qual_buf ;
@@ -292,7 +300,7 @@ void bntwritepacPE(LIB *libpe, BntWriteArgs *bargs, const  Arguments *arguments 
 			fprintf(stderr, "[bntwritepacPE] the length of sequence buffer is NULL....exit\n");
 			exit(1);
 		}
-		xassert(bntbuf_count == 2 * qualbuf_count , "[bntwritepacPE] bntbuf_count != qualbuf_count");
+		//xassert(bntbuf_count == 2 * qualbuf_count , "[bntwritepacPE] bntbuf_count != qualbuf_count");
 	}
 }
 
@@ -468,9 +476,9 @@ void  bntwritepacSE(LIB *libse , BntWriteArgs *bargs , const  Arguments *argumen
 	const int qualitycutoff = arguments->qual;
 	const int K = arguments->K ; 
 	const int benchmark = libse->qual_benchmark;
-	uint64_t bntbuf_count = 0 , qualbuf_count = 0 , max_buf = BUF_SIZE ;
+	uint64_t bntbuf_count = 0 , max_buf = BUF_SIZE ;
     uint8_t *bnt_buf = (uint8_t*)xcalloc(max_buf , sizeof(uint8_t));
-    uint8_t *qual_buf = (uint8_t*)xcalloc(max_buf/2 , sizeof(uint8_t));
+    uint8_t *qual_buf = (uint8_t*)xcalloc(max_buf , sizeof(uint8_t));
     uint64_t processed_rd = 0 , max_length_buf_size = INI_SIZE  ;
     
 	for(int i = 0 ; i < bargs->count ; i++)
@@ -521,11 +529,11 @@ void  bntwritepacSE(LIB *libse , BntWriteArgs *bargs , const  Arguments *argumen
 					}
 				} else noQual = 1 ;
 				// extending buffer
-				if( bntbuf_count + rd_len*2 >= (max_buf<<2))
+				if( bntbuf_count + rd_len >= (max_buf<<2))
 				{
 					max_buf <<= 1 ;
 					bnt_buf = (uint8_t*)xrecalloc(bnt_buf , max_buf * sizeof(uint8_t));
-					qual_buf = (uint8_t*)xrecalloc(qual_buf , (max_buf/2) * sizeof(uint8_t));
+					qual_buf = (uint8_t*)xrecalloc(qual_buf , max_buf * sizeof(uint8_t));
 				}
 				// write to the file and buffer memory
 				//uint8_t *rever_com = xcalloc((rd_len +  CHAR_PER_BYTE - 1)/CHAR_PER_BYTE, sizeof(uint8_t));
@@ -536,7 +544,6 @@ void  bntwritepacSE(LIB *libse , BntWriteArgs *bargs , const  Arguments *argumen
 					uint8_t c = nst_nt4_table[(int)seq->seq.s[i]];
 					bnt_buf[bntbuf_count>>2] <<= BIT_PER_CHAR ;
 					bnt_buf[bntbuf_count>>2] |= c ;
-					bntbuf_count++ ;
 					// add to the temp buffer for reverse complement
 					//rever_com[base_count>>2] <<= BIT_PER_CHAR;
 					//rever_com[base_count>>2] |= c;
@@ -545,11 +552,11 @@ void  bntwritepacSE(LIB *libse , BntWriteArgs *bargs , const  Arguments *argumen
 					uint8_t q ;
 					if(noQual == 0) q = adjustQuality(seq->qual.s[i], benchmark);
 					else q = 2; // if no quality value to provided, set quality is 2
-					qual_buf[qualbuf_count>>2] <<= BIT_PER_CHAR ;
-					qual_buf[qualbuf_count>>2] |= q ;
-					qualbuf_count++ ;
+					qual_buf[bntbuf_count>>2] <<= BIT_PER_CHAR ;
+					qual_buf[bntbuf_count>>2] |= q ;
+					bntbuf_count++ ;
 				}
-				// write reverse-complement strand to the buffer
+				/* write reverse-complement strand to the buffer
 				{
 					int64_t buf_end = bntbuf_count ;
 					uint8_t last_char = bnt_buf[(buf_end -1)>>2] ;
@@ -566,7 +573,7 @@ void  bntwritepacSE(LIB *libse , BntWriteArgs *bargs , const  Arguments *argumen
 						bnt_buf[bntbuf_count>>2] |= (~c & 0x03);
 						bntbuf_count++;
 					}
-				}
+				} */
 				//free(rever_com);
 
 				if(libse->diverse == 1)
@@ -594,12 +601,13 @@ void  bntwritepacSE(LIB *libse , BntWriteArgs *bargs , const  Arguments *argumen
     if((libse->diverse == 1) && (max_length_buf_size > processed_rd)) libse->length = (READ_SIZE*)realloc(libse->length,processed_rd * sizeof(READ_SIZE));
     // finalize the buffer 
     {
+		AlignBnt(bnt_buf, bntbuf_count);
+		AlignBnt(qual_buf, bntbuf_count);
         uint64_t bc = (bntbuf_count + CHAR_PER_BYTE - 1) / CHAR_PER_BYTE ;        
-        uint64_t qc = (qualbuf_count + CHAR_PER_BYTE - 1) / CHAR_PER_BYTE ;        
         if(max_buf > bc)
         {
             bnt_buf = (uint8_t*)realloc(bnt_buf , bc * sizeof(uint8_t)) ;
-            qual_buf = (uint8_t*)realloc(qual_buf , qc * sizeof(uint8_t));
+            qual_buf = (uint8_t*)realloc(qual_buf , bc * sizeof(uint8_t));
         }
         bargs->bntBuf = bnt_buf ;
         bargs->qualBuf = qual_buf ;
@@ -609,7 +617,7 @@ void  bntwritepacSE(LIB *libse , BntWriteArgs *bargs , const  Arguments *argumen
             fprintf(stderr, "[bntwritepacSE] the length of sequence buffer is NULL....exit\n");
             exit(1);
         }
-        xassert(bntbuf_count == 2 * qualbuf_count , "[bntwritepacSE] bntbuf_count != qualbuf_count");
+        //xassert(bntbuf_count == 2 * qualbuf_count , "[bntwritepacSE] bntbuf_count != qualbuf_count");
     }
 }
 
@@ -633,7 +641,7 @@ void bns2bntseq(lib_info *libIndex_info, BntWriteArgs *bntWriteArgs, const Argum
     strcpy(pacfn, arguments->prefix);   strcat(pacfn, ".pac.gz");
     strcpy(qualfn, arguments->prefix);  strcat(qualfn, ".qual.gz");
     
-    pacfp = xzopen(pacfn, "wb+"); qualfp = xzopen(qualfn, "wb+");
+    pacfp = xzopen(pacfn, "w"); qualfp = xzopen(qualfn, "w");
 
     // transform sequence reads to bit representation format file and package 
     {
@@ -653,99 +661,104 @@ void bns2bntseq(lib_info *libIndex_info, BntWriteArgs *bntWriteArgs, const Argum
         }
         omp_destroy_lock(&lock_log);
     }
-    // write library package  to .pac file 
+    // write library package  to .pac and .qual file 
     {
         // write the first library 
         //uint64_t totalLen = 0 ;
-        int64_t bc = bntWriteArgs[0].seq_len / CHAR_PER_BYTE; // remainder
-        int64_t qc = (bntWriteArgs[0].seq_len/2) / CHAR_PER_BYTE; // remainder
-        uint8_t b = bntWriteArgs[0].bntBuf[bc], q = bntWriteArgs[0].qualBuf[qc] ;
-	    uint8_t	bz = bntWriteArgs[0].seq_len % CHAR_PER_BYTE , qz = (bntWriteArgs[0].seq_len/2) % CHAR_PER_BYTE ;
-        gzwrite(pacfp, bntWriteArgs[0].bntBuf , sizeof(uint8_t)* bc);
-        gzwrite(qualfp, bntWriteArgs[0].qualBuf , sizeof(uint8_t)* qc);
-        libIndex_info->lib[0].offset = bntWriteArgs[0].seq_len ;
-        for(int i = 1 ; i < (int)libIndex_info->num_lib ; i++)
-        {
-            uint8_t *bnt , *qual ;
-            uint64_t bsize_total = (bntWriteArgs[i].seq_len + bz + CHAR_PER_BYTE - 1 ) / CHAR_PER_BYTE , size_bnt ;
-            uint64_t qsize_total = ((bntWriteArgs[i].seq_len/2) + qz + CHAR_PER_BYTE - 1 ) / CHAR_PER_BYTE , size_qual ;
-            free(bntWriteArgs[i-1].bntBuf); free(bntWriteArgs[i-1].qualBuf);
-            bnt = (uint8_t*)xcalloc(bsize_total , sizeof(uint8_t));
-            qual = (uint8_t*)xcalloc(qsize_total , sizeof(uint8_t));
-            if(bz > 0)  bnt[0] = b ;
-		    if(qz > 0)	qual[0] = q ; 
-            size_bnt = (bntWriteArgs[i].seq_len + CHAR_PER_BYTE - 1) / CHAR_PER_BYTE ;
-            size_qual = ((bntWriteArgs[i].seq_len/2) + CHAR_PER_BYTE - 1) / CHAR_PER_BYTE ;
-            for(uint64_t j = 0 ; j < size_bnt - 1 ; j++)
-            {
-                bnt[j] <<= ((CHAR_PER_BYTE - bz)<<1) ;
-                bnt[j] |= (bntWriteArgs[i].bntBuf[j] >> (bz<<1) );
-                bnt[j+1] = bntWriteArgs[i].bntBuf[j] & masklow8[bz] ;
-            }
-			for(uint64_t j = 0; j < size_qual - 1; j++)
+		//int align_flag = 1 ; // note the buffer have been align to Byte
+		int64_t buf_size = BUF_SIZE, buf_count = 0;
+		uint8_t *bntbuf = (uint8_t*)xcalloc(buf_size/CHAR_PER_BYTE, sizeof(uint8_t));
+		uint8_t *qualbuf = (uint8_t*)xcalloc(buf_size/CHAR_PER_BYTE, sizeof(uint8_t));
+		for(int i = 0 ; i < (int)libIndex_info->num_lib; i++)
+		{
+			int64_t p_count ;
+			if(buf_count % CHAR_PER_BYTE == 0) // align status
 			{
-                qual[j] <<= ((CHAR_PER_BYTE -qz)<<1) ;
-                qual[j] |= (bntWriteArgs[i].qualBuf[j] >> (qz<<1));
-                qual[j+1] = bntWriteArgs[i].qualBuf[j] & masklow8[qz] ;
-			}
-            if(bsize_total > size_bnt)
-            {
-                uint8_t t = (bntWriteArgs[i].seq_len + bz)%CHAR_PER_BYTE ;
-                bnt[size_bnt - 1] <<= ((CHAR_PER_BYTE - bz)<<1);
-                bnt[size_bnt - 1] |= (bntWriteArgs[i].bntBuf[size_bnt-1] >> (t<<1));
-                bnt[size_bnt] = bntWriteArgs[i].bntBuf[size_bnt-1] & masklow8[t];
-            } else {
-                uint8_t t = (bntWriteArgs[i].seq_len + bz)%CHAR_PER_BYTE - bz ;
-                bnt[size_bnt -1] <<= (t<<1);
-                bnt[size_bnt -1] |= (bntWriteArgs[i].bntBuf[size_bnt -1] & masklow8[t]);
-            }
-			if(qsize_total > size_qual)
+				if(buf_count > 0) 
+				{
+					gzwrite(pacfp, bntbuf, (buf_count/CHAR_PER_BYTE) * sizeof(uint8_t));
+					gzwrite(qualfp, qualbuf, (buf_count/CHAR_PER_BYTE) * sizeof(uint8_t));
+				}
+			    gzwrite(pacfp, bntWriteArgs[i].bntBuf, (bntWriteArgs[i].seq_len / CHAR_PER_BYTE) * sizeof(uint8_t));
+				gzwrite(qualfp, bntWriteArgs[i].qualBuf, (bntWriteArgs[i].seq_len / CHAR_PER_BYTE) * sizeof(uint8_t));
+				p_count = (bntWriteArgs[i].seq_len / CHAR_PER_BYTE) * CHAR_PER_BYTE ;
+			} else { p_count = 0; }
+			
+			for(int64_t j = p_count; j < bntWriteArgs[i].seq_len; j++)
 			{
-                uint8_t t = ((bntWriteArgs[i].seq_len/2) + qz)%CHAR_PER_BYTE ;
-                qual[size_qual -1] <<= ((CHAR_PER_BYTE - qz)<<1);
-                qual[size_qual -1] |= (bntWriteArgs[i].qualBuf[size_qual -1] >> (t<<1));
-                qual[size_qual] = bntWriteArgs[i].qualBuf[size_qual - 1] & masklow8[t] ;
-			} else {
-                uint8_t t = ((bntWriteArgs[i].seq_len/2) + qz)%CHAR_PER_BYTE - qz ;
-                qual[size_qual -1] <<= (t<<1);
-                qual[size_qual -1] |= (bntWriteArgs[i].qualBuf[size_qual-1] & masklow8[t]);
-			}
-            // write to .pac and .qual file 
-            bsize_total = (bntWriteArgs[i].seq_len + bz) / CHAR_PER_BYTE ;
-            qsize_total = ((bntWriteArgs[i].seq_len/2) + qz) / CHAR_PER_BYTE ;
-            gzwrite(pacfp, bnt , sizeof(uint8_t) * bsize_total);
-            gzwrite(qualfp, qual , sizeof(uint8_t) * qsize_total);
-            b = bnt[bsize_total] ;
-            q = qual[qsize_total] ;
-            bz = (bntWriteArgs[i].seq_len + bz) % CHAR_PER_BYTE ;
-            qz = ((bntWriteArgs[i].seq_len/2) + qz) % CHAR_PER_BYTE ;
-            libIndex_info->lib[i].offset = bntWriteArgs[i].seq_len ;
+				if(buf_count >= buf_size)
+				{
+					gzwrite(pacfp, bntbuf, (buf_count/CHAR_PER_BYTE) * sizeof(uint8_t));
+					gzwrite(qualfp, qualbuf, (buf_count/CHAR_PER_BYTE) * sizeof(uint8_t));
+					memset(bntbuf, 0, (buf_size/CHAR_PER_BYTE) * sizeof(uint8_t));
+					memset(qualbuf, 0, (buf_size/CHAR_PER_BYTE) * sizeof(uint8_t));
+					buf_count = 0 ;
+				}
 
-            // clean and free work
-            free(bnt); free(qual);
-        }
-        free(bntWriteArgs[libIndex_info->num_lib -1].bntBuf); free(bntWriteArgs[libIndex_info->num_lib -1].qualBuf);
-        //finalize .pac and .qual file 
-        if(bz > 0)  { b <<= ((CHAR_PER_BYTE - bz)<<1); gzwrite(pacfp, &b , sizeof(uint8_t) * 1); }
-        else   gzwrite(qualfp, &bz, sizeof(uint8_t)* 1);
-        if(qz > 0) { q <<= ((CHAR_PER_BYTE - qz)<<1); gzwrite(qualfp, &q , sizeof(uint8_t) * 1); }
-		else gzwrite(qualfp, &qz, sizeof(uint8_t) *1);
-        gzwrite(pacfp, &bz , sizeof(uint8_t) * 1);
-        gzwrite(qualfp, &qz , sizeof(uint8_t) * 1 );
-    }
-    gzclose(pacfp) ; gzclose(qualfp);
+				uint8_t bnt = GETBNT(bntWriteArgs[i].bntBuf, j);
+				bntbuf[buf_count>>2] <<= BIT_PER_CHAR ;
+				bntbuf[buf_count>>2] |= bnt ;
+				bnt = GETBNT(bntWriteArgs[i].qualBuf, j);
+				qualbuf[buf_count>>2] <<= BIT_PER_CHAR ;
+				qualbuf[buf_count>>2] |= bnt ;
+				buf_count++;
+			}	
+		}
+
+		// final and free work
+		AlignBnt(bntbuf, buf_count);
+		AlignBnt(qualbuf, buf_count);
+		gzwrite(pacfp, bntbuf, ((buf_count + CHAR_PER_BYTE -1)/CHAR_PER_BYTE) * sizeof(uint8_t));
+		gzwrite(qualfp, qualbuf, ((buf_count + CHAR_PER_BYTE -1)/CHAR_PER_BYTE) * sizeof(uint8_t));
+		uint8_t r = buf_count % CHAR_PER_BYTE ;
+		if(r == 0)
+		{
+			gzwrite(pacfp, &r, sizeof(uint8_t));
+			gzwrite(qualfp, &r, sizeof(uint8_t));
+		}
+		gzwrite(pacfp, &r, sizeof(uint8_t));
+		gzwrite(qualfp, &r, sizeof(uint8_t));
+		free(qualbuf); free(bntbuf);
+	}
+
     // complete libIndex_info structure
     libIndex_info->len_pac = 0 ;
     for(int i = 0 ; i < (int)libIndex_info->num_lib ; i++)
     {
-        uint64_t m  = libIndex_info->len_pac ;
-        libIndex_info->len_pac += libIndex_info->lib[i].offset ;
-        libIndex_info->lib[i].offset = m ;
+        libIndex_info->lib[i].offset = libIndex_info->len_pac ;
+        libIndex_info->len_pac += bntWriteArgs[i].seq_len ;
         libIndex_info->num_seqs += libIndex_info->lib[i].number_rd ;
+		free(bntWriteArgs[i].bntBuf); free(bntWriteArgs[i].qualBuf);
     }
 
     // clean and free work
+	gzclose(qualfp);
+	gzclose(pacfp) ; 
     BntWriteArgs_free(bntWriteArgs, libIndex_info->num_lib);
+}
+
+inline void SetSA(uint32_t *bwtsa, const uint64_t isa, const uint64_t sa)
+{
+	// offset = isa/2 * 3
+	uint64_t offset = ((isa / SA_INTERVAL) /2) * 3 ; 
+	if((isa & 0X1) == 0)
+	{
+		bwtsa[offset] = sa>>16 ;
+		while(1)
+		{
+			uint32_t old = bwtsa[offset+1] ;
+		   	uint32_t new = old | ((sa & 0XFFFF)<<16);
+			if(__sync_val_compare_and_swap(&bwtsa[offset+1], old, new) == old) {break;}
+		}
+	} else {
+		bwtsa[offset+2] = sa>>16 ;
+		while(1)
+		{
+			uint32_t old = bwtsa[offset+1];
+		    uint32_t new = old | (sa & 0XFFFF) ;
+			if(__sync_val_compare_and_swap(&bwtsa[offset+1], old, new) == old) { break; }
+		}
+	}
 }
 
 // return isa
@@ -761,13 +774,13 @@ uint64_t setBWTSA(bwt_t *bwt, const int64_t start, const int64_t end,  const int
     {
         int c ;
         int64_t bp ;
-        if(isa % SA_INTERVAL == 0) bwt->sa[isa/SA_INTERVAL] = i ;
+        if(isa % SA_INTERVAL == 0) SetSA(bwt->sa, isa, i); //bwt->sa[isa/SA_INTERVAL] = i ;
         bp = posSA2PosBWT(bwt, isa);
         c = bwt_B0(bwt, bp);
         isa = bwt->L2[c] + bwt->occMajor[(bp-1)/OCC_INTERVAL_MAJOR64 * 4 + c] + bwt_occ(bwt, bp-1, c) + offset;
     }
-    if(isa % SA_INTERVAL == 0) bwt->sa[isa/SA_INTERVAL] = i;
-    bwt->sa[0] = (bwtint_t)-1 ; // before this line, bwt->sa[0] = bwt->seq_len
+    if(isa % SA_INTERVAL == 0) SetSA(bwt->sa, isa, i); //bwt->sa[isa/SA_INTERVAL] = i;
+    SetSA(bwt->sa, 0, (uint64_t)-1); //bwt->sa[0] = (bwtint_t)-1 ; // before this line, bwt->sa[0] = bwt->seq_len
 #ifdef DEBUG
     {
         int flag = 0 ;
@@ -1003,6 +1016,7 @@ static inline int64_t posSAChangeToPosBWT(const bwt_t *bwt, const int64_t isa, c
 }
 */
 
+/*
 void setBWTLCP(const bwt_t *bwt, uint8_t *lcp, const uint64_t word_part, const int depth, const int first_len, const int min_kmerfreq)
 {
     // check arguments
@@ -1071,7 +1085,7 @@ void setBWTLCP(const bwt_t *bwt, uint8_t *lcp, const uint64_t word_part, const i
 		}
     }
     free(lcpBound);
-}
+} */
 
 /*
 void setBWTLCP_bak(const bwt_t *bwt, uint8_t *lcp, const uint64_t word_part, const int depth, const int first_len, const int min_kmerfreq)
@@ -1586,6 +1600,7 @@ uint8_t *compressLcp(const bwt_t *bwt, uint8_t *lcp)
     return p ;
 } */
 
+/*
 void saveKmerSA(const uint8_t *lcp , bwt_t *bwt , uint64_t start , const uint64_t end ,const lib_info *libIndex_info, FILE *kmerSAfp, const int min_kmerfreq, const int lcp_fixed_len)
 {
     KmerFreq *kmerSABuf ;
@@ -1684,7 +1699,6 @@ void saveKmerSA(const uint8_t *lcp , bwt_t *bwt , uint64_t start , const uint64_
     free(kmerSABuf);
 }
 
-/*
 void saveKmerSAAndLongZeroSA(const uint8_t *lcp , const bwt_t *bwt, const uint64_t start, const uint64_t end, FILE *kmerSAfp, FILE *longZeroSAfp)
 {
     KmerFreq *kmerSABuf ;
@@ -1961,7 +1975,7 @@ static inline void updataLCP(uint8_t *lcp, const int64_t len)
         lcp[i] &= 0XCC ; // equal to 11001100
     }
 }
-
+/*
 static void appendToSAFile(char *dest_fn, char *src_fn)
 {
     FILE *dest_fp = xopen(dest_fn, "ab");
@@ -1983,7 +1997,7 @@ static void appendToSAFile(char *dest_fn, char *src_fn)
     free(buf);
     fclose(src_fp);
     fclose(dest_fp);
-}
+ } */
 
 //Construct BWT for the packed sequence
 void generateBWT(const Arguments *arguments)
@@ -1997,8 +2011,8 @@ void generateBWT(const Arguments *arguments)
     time_t timeval ;
     lib_info *libIndex_info ;
     char filename[PATH_LEN];
-    uint8_t *lcp ;
-    char kmerSAF[PATH_LEN] ;
+    //uint8_t *lcp ;
+    //char kmerSAF[PATH_LEN] ;
 /*  
 #ifdef DEBUG
     if(arguments == NULL)
@@ -2084,7 +2098,7 @@ void generateBWT(const Arguments *arguments)
 					if((textBufferLen - partLen) < partLen) textBufferStart = textBufferLen/2 ; 
 					else textBufferStart = textBufferLen - partLen ;
 				}
-				ReadLocation rl = readBoundaryLookup(libIndex_info, textBufferStart);
+				ReadLocation rl = ReadBoundaryLookup(libIndex_info, textBufferStart);
 				textLocation = rl.bound ; // pac.gz store "+" and "-" strand 
 				dumpAndWriteStorage(textBuffer, textLocation , textBufferLen , fileName);
 				saIndexRange[i].startSaIndex = textLocation ; saIndexRange[i].endSaIndex = textBufferLen ;
@@ -2263,7 +2277,7 @@ void generateBWT(const Arguments *arguments)
 		}
     }
     // write BWT to file 
-    int divideNumber = bwtInc64->bwt->divideNumber;
+    //int divideNumber = bwtInc64->bwt->divideNumber;
     BWTSaveBwtCodeAndOcc64(bwtInc64->bwt,bwt_name,0);
     BWTIncFree64(bwtInc64);
     // add Occurrence and SA ,LCP 
@@ -2282,10 +2296,10 @@ void generateBWT(const Arguments *arguments)
          * certain length lcp before that position of string , second bit denote whether that position has certain length
          * lcp after that position of string. */
         time(&timeval); fprintf(arguments->logfp, "time:\t%s\n", ctime(&timeval));
-        fprintf(arguments->logfp, "[generateBWT] Begin set BWT LCP....\n");
-        int64_t len_lcp = (bwt->seq_len + bwt->divideNumber + BITS_IN_BYTE -1)/BITS_IN_BYTE;
+        //fprintf(arguments->logfp, "[generateBWT] Begin set BWT LCP....\n");
+        //int64_t len_lcp = (bwt->seq_len + bwt->divideNumber + BITS_IN_BYTE -1)/BITS_IN_BYTE;
         //fprintf(stderr, "[generateBWT] bwt->seq_len: %ld, len_lcp: %ld\n",bwt->seq_len, len_lcp);
-        lcp = (uint8_t*)xcalloc(len_lcp , sizeof(uint8_t));
+        //lcp = (uint8_t*)xcalloc(len_lcp , sizeof(uint8_t));
 
 /* #ifdef DEBUG            
         {
@@ -2319,7 +2333,7 @@ void generateBWT(const Arguments *arguments)
 #endif */
 
         t = clock();
-        int64_t width = (bwt->seq_len / DEFAULT_DEPTH) / AVERAGE_CAPACITY;
+        /*int64_t width = (bwt->seq_len / DEFAULT_DEPTH) / AVERAGE_CAPACITY;
         int first_len = 6;
 		//int fixed_len = 20;
         //while(pow(4, first_len) < width) { first_len++; }
@@ -2330,12 +2344,13 @@ void generateBWT(const Arguments *arguments)
         {
             setBWTLCP(bwt, lcp, i, KMER+1, first_len, arguments->min_kmerfreq);
         }
-        fprintf(arguments->logfp, "[generateBWT] finish setting BWT LCP....\n");
+        fprintf(arguments->logfp, "[generateBWT] finish setting BWT LCP....\n"); */
         
         if(bwt->sa != NULL) free(bwt->sa);
         bwt->sa_intv = SA_INTERVAL ;
-        bwt->n_sa = (bwt->seq_len + bwt->divideNumber + bwt->sa_intv - 1) / bwt->sa_intv ;
-        bwt->sa = (bwtint_t*)calloc(bwt->n_sa, sizeof(bwtint_t));
+        bwt->n_sa = (bwt->seq_len + bwt->divideNumber + bwt->sa_intv - 1) / bwt->sa_intv  ;
+		bwt->n_sa = (bwt->n_sa + 1)/2 * 3 ; // change to 48bits mode size
+        bwt->sa = (uint32_t*)calloc(bwt->n_sa, sizeof(uint32_t));
         time(&timeval); fprintf(arguments->logfp, "time:\t%s\n", ctime(&timeval));
         fprintf(arguments->logfp, "[generateBWT] Begin set BWT SA ....\n");
         if(bwt->isDivide == 0)
@@ -2351,11 +2366,12 @@ void generateBWT(const Arguments *arguments)
                 setBWTSA(bwt, bwt->divideBoundary[i].textLocation , end, (int)bwt->divideNumber , i);
             }
         }
-        time(&timeval); fprintf(arguments->logfp, "finished set\ntime:\t%s\n[generateBWT]Begin save kmer SA....\n", ctime(&timeval));
+        time(&timeval); fprintf(arguments->logfp, "finished set\ntime:\t%s\n", ctime(&timeval));
 #ifdef DEBUG
         fprintf(stderr, "finished set BWT SA\n");
         fprintf(arguments->logfp, "Indexing enhanced suffix arrays used %.2f sec\n", (float)(clock() - index_t) / CLOCKS_PER_SEC);
 #endif
+        /*
         // scan lcp array and save kmer SA 
         if(bwt->divideNumber == 0) bwt->divideNumber = 1 ;
         strcpy(kmerSAF , prefix); strcat(kmerSAF , ".kmerSA");
@@ -2376,7 +2392,6 @@ void generateBWT(const Arguments *arguments)
         fclose(kmerSAfp);
         time(&timeval); fprintf(arguments->logfp, "finished saving\ntime:\t%s\n", ctime(&timeval));
 
-        /*
         // scan lcp array , save kmer SA and check long zero range if missing mark 
         if(bwt->divideNumber == 0) bwt->divideNumber = 1 ;
         FILE *kmerSAfp, *longZeroSAfp;
@@ -2403,8 +2418,8 @@ void generateBWT(const Arguments *arguments)
         bwt_destroy(bwt);
     }
     
+	/*
     {
-        /*
         // calculate  long Zero Gaps lcp  
         uint64_t seq_len = pac_seq_len(pac_name);
         uint8_t *pac = (uint8_t*)calloc(seq_len / CHAR_PER_BYTE + 1 , sizeof(uint8_t));
@@ -2429,7 +2444,6 @@ void generateBWT(const Arguments *arguments)
         free(longZeroSABuf); 
         fclose(pacfp); fclose(longZeroSAfp);
         if(remove(longZeroSAF) == -1) fprintf(stderr, "remove file: %s error\n", longZeroSAF);
-        */
 
         // calculate kmerFreq and write to .kmerFreq file 
         char kmerFreq_name[PATH_LEN];
@@ -2506,7 +2520,7 @@ void generateBWT(const Arguments *arguments)
             fprintf(arguments->logfp, "[generateBWT] extractKmerFromPac() used %.2f CPU secs\n", (float)(clock() - t) / CLOCKS_PER_SEC);
         }
         free(kmerSABuf);
-    }
+    } */
 
 	// free work
 	lib_infoFree(libIndex_info) ;
@@ -2588,7 +2602,6 @@ int CheckPacFile(const Arguments *arguments, const lib_info *libIndex_info, cons
     fprintf(arguments->logfp, "#############################################\n");
 
 #endif
-	
 	return 1 ;
 }
 
@@ -2642,7 +2655,7 @@ int index_usage()
     fprintf(stderr, "           -G INT(Mega)    approximate genome size by prior knonw, setting genome size if assemble a high heterozygosity genome\n");
     fprintf(stderr, "           -K INT          The kmer size used for generating graph, must small than minimum read length that used construct contig, program will filter out the reads than small than K+5, the value must be odd and between %d~%d[%d]\n", MIN_KMER, MAX_KMER, DEF_KMER);
     fprintf(stderr, "           -o STR          program output directory by running-time[current directory]\n");
-    fprintf(stderr, "           -q INT          the quality of base calling by cutting off, 1 is low quality, 2 is middle value, 3 is high, 4 is unfiltered. [3]\n");
+    fprintf(stderr, "           -q INT          the quality of base calling by cutting off, 0 note unfiltered, 1 is low quality, 2 is middle value, 3 is high, 4 is unfiltered. [0]\n");
     fprintf(stderr, "           -H INT          heterozygosity of diploid genome, low heterozygosity set 1, middle set 2, high heterozygosity set 3 [1]\n");
     return 0 ;
 }

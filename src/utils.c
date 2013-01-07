@@ -75,6 +75,10 @@ const uint8_t masklow8[ ] = {
     0x00 , 0x03 , 0x0F , 0x3F , 0xFF 
 } ;
 
+const uint8_t clean_bnt[] = {
+	0X3F, 0XCF, 0XF3, 0XFC 
+} ;
+
 void *xcalloc(size_t nmemb, size_t size)
 {
     void *p ;

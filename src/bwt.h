@@ -35,7 +35,7 @@
 #define OCC_INTERVAL64 0x80
 // occ_interval_major 2^^32
 //#define OCC_INTERVAL_MAJOR 0x100000000
-#define SA_INTERVAL 64
+#define SA_INTERVAL 32
 #define BUF_SIZE 0x100000 // buffer memory size
 
 #ifndef BWA_UBYTE
@@ -62,7 +62,7 @@ typedef struct {
 	// suffix array
 	int sa_intv;
 	bwtint_t n_sa;
-	bwtint_t *sa; // the leftmost high 8 bit used denote whether SA have been accessed, 1 note has been accessed
+	uint32_t *sa; // SA of BWT rebuild by SA1(48bit) = (sa[0] << 16) | (sa[1] >> 16), SA2 = (sa[2] <<16) | ((sa[1])<<16)>>16. undefine (the leftmost high 8 bit used denote whether SA have been accessed, 1 note has been accessed)
 } bwt_t;
 
 #define bwt_bwt(b, k) ((b)->bwt[(k)/OCC_INTERVAL64*12 + 4 + (k)%OCC_INTERVAL64/16])

@@ -68,6 +68,7 @@ char **readFileList(char *filepath, int *fileNum );
 kseq_t *kseq_init(gzFile fd) ;
 void kseq_destroy(kseq_t *ks);
 int kseq_read(kseq_t *seq);
+extern const char BIT_NT_CHAR[] ; 
 
 #endif
 

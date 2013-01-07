@@ -646,7 +646,7 @@ BWTInc64 *mergeBWT64(BWTInc64 *bwtInc64, const BWTInc *bwtInc, const int divideC
         int64_t pos = last_pos - (int64_t)bwtInc->bwt->textLength/num_threads - (int64_t)bwtInc->bwt->textLength % num_threads ;
         if(i < num_threads - 1)
         {
-            int len = CHAR_PER_BYTE * 200;
+            int len = CHAR_PER_BYTE * 800;
             int flag = 0;
             int64_t cor_pos = pos - len;
             cor_pos = cor_pos/CHAR_PER_BYTE * CHAR_PER_BYTE ; 
@@ -677,6 +677,18 @@ BWTInc64 *mergeBWT64(BWTInc64 *bwtInc64, const BWTInc *bwtInc, const int divideC
                         bwt64_high = bwtInc64->bwt->cumulativeFreq[c] + BWTOccValue64(bwtInc64->bwt, bwt64_high, c) + divideCount;
                     }
                     fprintf(stderr, "%u", c);
+					/* debug 
+					{
+						int i ;
+						for(i = 0 ; i < bwtInc64->bwt->divideNumber; i++)
+						{
+							if(bwt64_low <= bwtInc64->bwt->sentinelPosition[i]) break ;
+						}
+						int64_t isa = bwt64_low - i ;
+						uint32_t tmp = (bwtInc64->bwt->bwtCode[isa>>5] >> (((~isa)& 0xf)<<1))&0x3 ;
+						fprintf(stderr, "%u", tmp);
+					} // end debug */
+
                     if(low + 1 == high && bwt64_low == bwt64_high)
                     {
                         pos = cor_pos + j ;
@@ -696,7 +708,10 @@ BWTInc64 *mergeBWT64(BWTInc64 *bwtInc64, const BWTInc *bwtInc, const int divideC
                 if(flag == 1) break;
                 else cor_pos -= len;
             }
-            if(flag != 1) {fprintf(stderr, "[mergeBWT64] flag != 1, error, program exit...\n"); exit(1); }
+            if(flag != 1) 
+			{
+				fprintf(stderr, "[mergeBWT64] flag != 1, error, program exit...\n"); exit(1); 
+			}
         } else {
             pos = 0 ;
             if(i > 0)

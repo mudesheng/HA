@@ -34,6 +34,7 @@
 extern const uint64_t masklow64[] ;
 extern const uint32_t masklow32[];
 extern const uint8_t masklow8[] ;
+extern const uint8_t clean_bnt[] ;
 
 #define INITIAL_STACK_SIZE 2000
 #define err_fatal_simple(msg) err_fatal_simple_core(__func__, msg)
@@ -41,6 +42,10 @@ extern const uint8_t masklow8[] ;
 #define xreopen(fn, mode, fp) err_xreopen_core(__func__, fn, mode, fp)
 #define xzopen(fn, mode) err_xzopen_core(__func__, fn, mode)
 #define xassert(cond, msg) if ((cond) == 0) err_fatal_simple_core(__func__, msg)
+
+#define SETBNT(allv, c, freq) (((allv) & clean_bnt[(c)]) | ((freq)<<(((~(c)) & 0x3)<<1)))
+#define GETBNT(table, index) (((table)[(index)>>2] >> (((~(index)) & 0x3)<<1)) & 0x3)
+
 
 #ifndef PATH_LEN
 #define PATH_LEN 1024 // file path length

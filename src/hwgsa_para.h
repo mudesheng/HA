@@ -14,7 +14,7 @@
 #define BIDIRECTION 2 
 #define LEN_INTERVAL_MAJOR 512
 #define PROGRAM_NAME "HWGSA"
-#define GET_CHAR_FROM_PAC(pac, pos) (((pac)[(pos)/CHAR_PER_BYTE] >> (((~(pos)) & 0x3)<<1)) & 0x3)
+//#define GET_CHAR_FROM_PAC(pac, pos) (((pac)[(pos)/CHAR_PER_BYTE] >> (((~(pos)) & 0x3)<<1)) & 0x3)
 #ifndef PATH_LEN 
 #define PATH_LEN 1024 
 #endif
@@ -91,10 +91,10 @@ typedef struct {
 typedef struct {
     int64_t bound;
     int length[2];
-	int paired:1; // if reads in pair end library, set paired = 1 else paired = 0
-	int serial:2; // serial note the number of readID
-	int size: 24; // size note the length of certain read length
-	int64_t readID ;
+	uint64_t readID:40 ;
+	uint64_t paired:1; // if reads in pair end library, set paired = 1 else paired = 0
+	uint64_t serial:1; // serial note the number of readID
+	//uint64_t size:24; // size note the length of certain read length
 	PE pe;
 } ReadLocation;
 
@@ -102,7 +102,8 @@ char *KStrip(char *s) ;
 void preProcessArgs(Arguments *arguments) ;
 PConfReturn *parseConffile(char *conffile) ;
 void free_Arguments(Arguments * arguments) ;
-ReadLocation readBoundaryLookup(const lib_info *libIndex_info,const int64_t position) ;
+// flag note FORWARD, BACKWARD and BIDIRECTION, return readID of all sorted library
+ReadLocation ReadBoundaryLookup(const lib_info *libIndex_info,const int64_t position) ;
 int checkSA(const ReadLocation rl, const int64_t a, const int fixed_len) ;
 void writeArgsToFile(const Arguments *arguments, FILE *fp);
 int checkGenGraphArgs(Arguments *arguments, FILE *fp);

@@ -264,16 +264,14 @@ int bwa_pac2cspac(int argc, char *argv[])
 	free(cspac);
 	return 0;
 }
-*/
-
 int bwa_bwt2sa(int argc, char *argv[])
 {
 	bwt_t *bwt;
 	int c, sa_intv = 32;
 	while ((c = getopt(argc, argv, "i:")) >= 0) {
 		switch (c) {
-		case 'i': sa_intv = atoi(optarg); break;
-		default: return 1;
+			case 'i': sa_intv = atoi(optarg); break;
+			default: return 1;
 		}
 	}
 	if (optind + 2 > argc) {
@@ -285,4 +283,4 @@ int bwa_bwt2sa(int argc, char *argv[])
 	bwt_dump_sa(argv[optind+1], bwt);
 	bwt_destroy(bwt);
 	return 0;
-}
+}*/

@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include "bwt.h"
 #include "utils.h"
+#include "seqIO.h"
 
 void dumpAndWriteStorage(const unsigned char *input,const int64_t start, const int64_t end, const char *fileName)
 {
@@ -201,7 +202,8 @@ void bwt_dump_sa(const char *fn, const bwt_t *bwt)
 	gzwrite(fp, bwt->L2+1, sizeof(bwtint_t) * 4);
 	gzwrite(fp, &bwt->sa_intv, sizeof(bwtint_t) * 1);
 	gzwrite(fp, &bwt->seq_len, sizeof(bwtint_t) * 1);
-	gzwrite(fp, bwt->sa + 1, sizeof(bwtint_t) * bwt->n_sa - 1);
+	gzwrite(fp, &bwt->n_sa, sizeof(bwtint_t) * 1);
+	gzwrite(fp, bwt->sa, sizeof(uint32_t) * bwt->n_sa);
 	gzclose(fp);
 }
 
@@ -219,11 +221,12 @@ void bwt_restore_sa(const char *fn, bwt_t *bwt)
 	fread(&primary, sizeof(bwtint_t), 1, fp);
 	xassert(primary == bwt->seq_len, "SA-BWT inconsistency: seq_len is not the same.");
 
-	bwt->n_sa = (bwt->seq_len + bwt->sa_intv) / bwt->sa_intv;
-	bwt->sa = (bwtint_t*)calloc(bwt->n_sa, sizeof(bwtint_t));
-	bwt->sa[0] = -1;
+	fread(&bwt->n_sa, sizeof(bwtint_t), 1, fp);
+	//bwt->n_sa = (bwt->seq_len + bwt->sa_intv) / bwt->sa_intv;
+	bwt->sa = (uint32_t*)calloc(bwt->n_sa, sizeof(uint32_t));
+	//bwt->sa[0] = -1;
 
-	fread(bwt->sa + 1, sizeof(bwtint_t), bwt->n_sa - 1, fp);
+	fread(bwt->sa , sizeof(uint32_t), bwt->n_sa , fp);
 	fclose(fp);
 }
 

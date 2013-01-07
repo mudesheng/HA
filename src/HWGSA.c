@@ -10,12 +10,17 @@ int hwgsa_findOverlap(int argc, char *argv[])
 	return 0;
 } 
 
-/*
-int hwgsa_genGraph_tmp(int argc, char *argv[])
+int hwgsa_genGraph(int argc, char *argv[])
 {
 	// NULL
 	return 0 ;
-} */
+}
+
+int hwgsa_mapToGraph(int argc, char *argv[])
+{
+	// NULL
+	return 0 ;
+}
 
 int hwgsa_extend(int argc, char *argv[])
 {

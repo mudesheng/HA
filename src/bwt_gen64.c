@@ -612,7 +612,6 @@ uint64_t BWTOccValue64(const BWT64 *bwt, uint64_t index, const unsigned int char
 	} else {
 		return occValue - BackwardDNAOccCount(bwt->bwtCode + occIndex / CHAR_PER_WORD, occIndex - index, character, bwt->decodeTable);
 	}
-
 }
 
 static unsigned int BWTIncGetAbsoluteRank64(BWT64 *bwt, uint64_t* __restrict absoluteRank, unsigned int* __restrict seq,

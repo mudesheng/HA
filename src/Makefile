@@ -8,7 +8,7 @@ CFLAGS=     -g -pg -Wall -m64 -fopenmp -DDEBUG -std=gnu99
 CXXFLAGS=	$(CFLAGS)
 DFLAGS=    -D_FILE_OFFSET_BITS=64
 #-DHAVE_PTHREAD 
-OBJS=		hwgsa_all.o bwtindex.o generateGraph.o hwgsa_para.o seqIO.o bwtio.o bwt.o bwtmisc.o\
+OBJS=		hwgsa_all.o bwtindex.o hwgsa_para.o seqIO.o bwtio.o bwt.o bwtmisc.o\
 			utils.o lookup3.o bwt_merge.o bwt_gen64.o bwt_gen.o QSufSort.o	
 PROG=		HWGSA0725
 #LIBS=       -lm -lz -Lbwt_gen -lbwtgen -lefence
@@ -31,7 +31,7 @@ HWGSA0725: $(OBJS) HWGSA.o
 HWGSA.o: HWGSA.h
 hwgsa_all.o: HWGSA.h 
 extend.o: extend.h 
-generateGraph.o: generateGraph.h bwt.h
+#generateGraph.o: generateGraph.h bwt.h
 #findOverlap.o: findOverlap.h bwt.h
 lookup3.o: generateGraph.h bwt.h
 bwtindex.o: bwtindex.h bwt.h
